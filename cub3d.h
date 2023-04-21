@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:59 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/20 23:58:54 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/21 04:55:50 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,19 @@ typedef struct s_parse {
 }	t_parse;
 
 typedef struct s_data {
-	char 	*file;
 	int 	no;
 	int 	so;
 	int 	we;
 	int 	ea;
 	int 	floor;
 	int 	ceiling;
-	int		invalid;
 }	t_data;
 
 // libft_tools
 int ft_strcmp(char *s1, char *s2);
 char *ft_strdup(char *s);
 char	*ft_substr(char *s, int start, int len);
+int ft_strlen(char *s);
 
 // map_errors
 void first_check(int ac, char **av);
@@ -52,6 +51,10 @@ void first_check(int ac, char **av);
 
 // parsing
 t_parse	*parsing(char *path);
+void	print_tab(char **tab);
+
+// tools0
+char	*remove_spc(char *line);
 
 
 #endif

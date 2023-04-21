@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_errors.c                                       :+:      :+:    :+:   */
+/*   tools0.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 23:47:54 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/21 04:57:42 by nloutfi          ###   ########.fr       */
+/*   Created: 2023/04/21 01:20:20 by nloutfi           #+#    #+#             */
+/*   Updated: 2023/04/21 01:20:30 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-
-void first_check(int ac, char **av)
+char	*remove_spc(char *line)
 {
-	if (ac != 2)
-		errors("Invalid number of arguments");
-	if (open(av[1], O_RDONLY) == -1)
-		errors("Invalid file");
-	if (ft_strcmp(av[1] + ft_strlen(av[1]) - 4, ".cub"))
-		errors("Invalid file extension");
-}
+	int		i;
+	int		j;
+	char	*new;
 
-void	errors(char *str)
-{
-	printf("Error\n%s\n", str);
-	exit(1);
+	i = 0;
+	j = 0;
+	while (*line == ' ' || *line == '\t')
+		line++;
+	i = ft_strlen(line) - 1;
+	while (line[i] == ' ' || line[i] == '\t')
+		i--;
+	new = (char *)malloc(sizeof(char) * (i + 2));
+	while (line[i] && j <= i)
+	{
+		new[i] = line[i];
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
 }
