@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_errors.c                                       :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 23:47:54 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/21 04:57:42 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/22 12:00:34 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void first_check(int ac, char **av)
 		errors("Invalid number of arguments");
 	if (open(av[1], O_RDONLY) == -1)
 		errors("Invalid file");
-	if (ft_strcmp(av[1] + ft_strlen(av[1]) - 4, ".cub"))
+	if (ft_strncmp(av[1] + ft_strlen(av[1]) - 4, ".cub", 4))
 		errors("Invalid file extension");
 }
 

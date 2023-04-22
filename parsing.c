@@ -6,23 +6,14 @@
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:31:02 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/21 03:41:31 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/22 13:20:54 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-char	*remove_nl(char *line)
-{
-	int		i;
-	char	*new;
 
-	i = 0;
-	while (line[i] != '\n' && line[i])
-		i++;
-	new = ft_substr(line, 0, i);
-	return (new);
-}
+
 char	**fill_file(int fd)
 {
 	int		i;
@@ -34,7 +25,7 @@ char	**fill_file(int fd)
 	line = get_next_line(fd);
 	while (line)
 	{
-			tab[i] = ft_strdup(line);
+			tab[i] = remove_nl(line);
 			free(line);
 			line = get_next_line(fd);
 			i++;
@@ -51,11 +42,32 @@ void	print_tab(char **tab)
 	i = 0;
 	while (tab[i])
 	{
-		printf("%s ", tab[i]);
+		printf("%s \n", tab[i]);
 		i++;
 	}
 }
 
+void	print_parse(t_parse *parse)
+{
+	printf("NO: %s!\n", parse->no);
+	printf("SO: %s!\n", parse->so);
+	printf("WE: %s!\n", parse->we);
+	printf("EA: %s!\n", parse->ea);
+	printf("Floor: %d\n", parse->floor);
+	printf("Ceiling: %d\n", parse->ceiling);
+	printf("tex: %d\n", parse->tex);
+}
+
+void	init_parse(t_parse *parse)
+{
+	parse->no = NULL;
+	parse->so = NULL;
+	parse->we = NULL;
+	parse->ea = NULL;
+	parse->floor = 0;
+	parse->ceiling = 0;
+	parse->tex = 0;
+}
 	
 t_parse	*parsing(char *path)
 {
@@ -64,10 +76,12 @@ t_parse	*parsing(char *path)
 	char	**file;
 
 	parse = (t_parse *)malloc(sizeof(t_parse));
+	init_parse(parse);
 	fd = open(path, O_RDONLY);
 	file = fill_file(fd);
-	// identifiers(parse, file);
-	print_tab(file);
+	identifiers(parse, file);
+	// print_tab(file);
+	print_parse(parse);
 	// close(fd);
 	// identifiers(parse);
 	// parse = fill_idens(tab, parse);

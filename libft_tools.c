@@ -6,20 +6,22 @@
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:16:10 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/21 04:47:06 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/22 12:19:32 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int ft_strcmp(char *s1, char *s2)
+int     ft_strncmp(char *s1, char *s2, int n)
 {
-	int i;
+    int i;
 
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
+    i = 0;
+    while (s1[i] && s2[i] && s1[i] == s2[i] && i < n)
+        i++;
+    if (i == n)
+        return (0);
+    return (s1[i] - s2[i]);
 }
 
 char	*ft_strdup(char *s)
@@ -82,30 +84,6 @@ int	word_count(char *str, char c)
 	return (n);
 }
 
-int	word_count(char *str, char c)
-{
-	int	i;
-	int	j;
-	int	n;
-
-	i = 0;
-	n = 0;
-	while (str[i])
-	{
-		j = 0;
-		while (str[i] != c && str[i])
-		{
-			j = 1;
-			i++;
-		}
-		if (j == 1)
-			n++;
-		if (str[i])
-			i++;
-	}
-	return (n);
-}
-
 char	**ft_split(char *line, char c)
 {
 	int		i;
@@ -115,6 +93,7 @@ char	**ft_split(char *line, char c)
 
 	i = 0;
 	w = 0;
+	// printf("%d %s\n", word_count(line, c), line);
 	tab = (char **)malloc(sizeof(char *) * (word_count(line, c) + 1));
 	while (line[i])
 	{

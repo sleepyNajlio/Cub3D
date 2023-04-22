@@ -1,5 +1,10 @@
 {
 	"files.associations": {
-		"__config": "c"
+		"__config": "c",
+		"__hash_table": "c",
+		"algorithm": "c",
+		"functional": "c",
+		"locale": "c",
+		"string": "c"
 	}
 }
