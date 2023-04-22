@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:52:40 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/22 20:46:52 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/22 22:12:24 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ void    printf_map(char **map)
 void check_map(t_parse *parse)
 {
     check_player(parse);
-    check_map_walls(parse);
+    check_top_bottom(parse);
+    check_sides(parse);
 }
 
 void    parse_map(t_parse *parse, char **file)

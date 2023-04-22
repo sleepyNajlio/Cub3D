@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:59 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/22 20:43:59 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/22 22:12:09 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	**ft_split(char *line, char c);
 int 	ft_isdigit(char *str);
 int 	ft_atoi(char *str);
 
-// map_errors
+// errors
 void first_check(int ac, char **av);
 void	errors(char *str);
 
@@ -72,6 +72,7 @@ void    get_tex(char *line, t_parse *parse);
 
 // map
 void    parse_map(t_parse *parse, char **file);
-
+void    check_top_bottom(t_parse *parse);
+void 	check_player(t_parse *parse);
 
 #endif

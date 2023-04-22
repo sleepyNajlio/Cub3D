@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:41:00 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/22 20:51:25 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/22 22:15:40 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,44 @@ void check_player(t_parse *parse)
         i++;
     }
     if (parse->player != 1)
-        errors("Error: Invalid player position");
+        errors("Invalid player");
 }
 
-void    check_map_walls(t_parse *parse)
+void    check_top_bottom(t_parse *parse)
 {
     int i;
     int j;
 
     i = 0;
     j = 0;
-    while (parse->map[i][i])
+    while (parse->map[i][j])
     {
-        if (parse->map[i][j] != '1' && parse->map[i][j] != ' ' && parse->map[i][j] != '\t')) 
-            errors("Error: Invalid map");
+        if (parse->map[i][j] != '1' && !ft_isspace(parse->map[i][j]))
+            errors("Invalid map");
         j++;
     }
+    i = parse->map_height - 1;
+    j = 0;
+    while (parse->map[i][j])
+    {
+        if (parse->map[i][j] != '1' && !ft_isspace(parse->map[i][j]))
+            errors("Invalid map");
+        j++;
+    }
+}
+
+void    check_sides(t_parse *parse)
+{
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;  
+    while (parse->map[i])
+    {
+        while (ft_isspace(parse->map[i][j]))
+            j++;
+        if (parse->map[i][j] != '1')
+            errors("Invalid map");
+    }   
 }
