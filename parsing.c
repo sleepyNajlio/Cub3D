@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:31:02 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/22 13:20:54 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/22 20:30:14 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ void	init_parse(t_parse *parse)
 	parse->floor = 0;
 	parse->ceiling = 0;
 	parse->tex = 0;
+	parse->map = NULL;
+	parse->map_height = 0;
+	parse->map_width = 0;
 }
 	
 t_parse	*parsing(char *path)
@@ -80,8 +83,9 @@ t_parse	*parsing(char *path)
 	fd = open(path, O_RDONLY);
 	file = fill_file(fd);
 	identifiers(parse, file);
+	parse_map(parse, file);
 	// print_tab(file);
-	print_parse(parse);
+	// print_parse(parse);
 	// close(fd);
 	// identifiers(parse);
 	// parse = fill_idens(tab, parse);

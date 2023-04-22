@@ -2,7 +2,7 @@
 NAME	= Cub3D
 
 SRC		= main.c errors.c libft_tools.c get_next_line.c get_next_line_utils.c parsing.c\
-		identifiers.c iden_tools.c libft_tools1.c tools0.c 
+		identifiers.c iden_tools.c libft_tools1.c tools0.c map.c
 
 FLAGS	= -Wall -Werror -Wextra -g #
 

@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:32:10 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/22 14:54:48 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/22 20:52:55 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int     is_empty_line(char *line)
     int i;
     
     i = 0;
-    while (line[i] == ' ' || line[i] == '\t')
+    while (ft_isspace(line[i]))
         i++;
     if (line[i] == '\0' || line[i] == '\n')
         return (1);
@@ -53,7 +53,7 @@ int     is_empty_line(char *line)
 
 int is_iden(char *line, t_parse *parse)
 {
-    while (*line == ' ' || *line == '\t')
+    while (ft_isspace(*line))
         line++;
     if (ft_strncmp(line, "NO", 2) == 0 || ft_strncmp(line, "SO", 2) == 0 
         || ft_strncmp(line, "WE", 2) == 0 || ft_strncmp(line, "EA", 2) == 0)

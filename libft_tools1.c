@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 04:53:37 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/22 12:03:27 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/22 20:52:19 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ int ft_isdigit(char *str)
 	return (1);
 }
 
+int ft_isspace(char c)
+{
+	if (c == '\t' || c == '\n' || c == '\v' ||
+			c == '\f' || c == '\r' || c == ' ')
+		return (1);
+	return (0);
+}
 
 int ft_atoi(char *str)
 {
@@ -36,8 +43,7 @@ int ft_atoi(char *str)
 	i = 0;
 	sign = 1;
 	res = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
-			str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+	while (ft_isspace(str[i]))
 		i++;
 	if (str[i] == '-')
 		sign = -1;

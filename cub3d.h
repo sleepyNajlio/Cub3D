@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:59 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/22 13:12:41 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/22 20:43:59 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ typedef struct s_parse {
 	int 	ceiling;
 	int		tex;
 	char 	**map;
+	int 	map_width;
+	int 	map_height;
+	int 	player;
+	int 	player_x;
+	int 	player_y;
 }	t_parse;
 
 
@@ -64,5 +69,9 @@ void    check_identifiers(t_parse *parse);
 void	get_color(char *line, t_parse *parse);
 char	**check_color(char *line);
 void    get_tex(char *line, t_parse *parse);
+
+// map
+void    parse_map(t_parse *parse, char **file);
+
 
 #endif
