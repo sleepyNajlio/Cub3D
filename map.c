@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:52:40 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/22 22:12:24 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/25 12:31:05 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,10 @@ void    printf_map(char **map)
 
 void check_map(t_parse *parse)
 {
+    check_chars(parse->map);
     check_player(parse);
-    check_top_bottom(parse);
-    check_sides(parse);
+    check_borders(parse);
+    check_zero(parse);
 }
 
 void    parse_map(t_parse *parse, char **file)

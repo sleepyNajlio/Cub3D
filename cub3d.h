@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:59 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/22 22:12:09 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/25 12:14:19 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int 	ft_strlen(char *s);
 char	**ft_split(char *line, char c);
 int 	ft_isdigit(char *str);
 int 	ft_atoi(char *str);
+int 	ft_isspace(char c);
 
 // errors
 void first_check(int ac, char **av);
@@ -72,7 +73,10 @@ void    get_tex(char *line, t_parse *parse);
 
 // map
 void    parse_map(t_parse *parse, char **file);
-void    check_top_bottom(t_parse *parse);
+void    check_borders(t_parse *parse);
 void 	check_player(t_parse *parse);
+void    check_chars(char **map);
+void    check_zero(t_parse *parse);
+
 
 #endif
