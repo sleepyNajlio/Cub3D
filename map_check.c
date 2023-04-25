@@ -6,11 +6,11 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:41:00 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/25 12:32:13 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/25 13:47:58 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "parse.h"
 
 void    check_chars(char **map)
 {
@@ -64,7 +64,6 @@ void    check_borders(t_parse *parse)
     int i;
     int j;
 
-    i = 1;
     j = 0;
     while (parse->map[0][j])
     {
@@ -72,22 +71,6 @@ void    check_borders(t_parse *parse)
             errors("Invalid map first line");
         j++;
     }
-    // while (i < parse->map_height - 2)
-    // {
-    //     j = 0;
-    //     while (ft_isspace(parse->map[i][j]))
-    //         j++;
-    //     if (parse->map[i][j] != '1')
-    //         errors("Invalid map side 1");
-    //     j = ft_strlen(parse->map[i]) - 1;
-    //     // printf("j = %c\n", parse->map[i][j]);
-    //     // printf("i = %d\n", i);
-    //     while (ft_isspace(parse->map[i][j]))
-    //         j--;
-    //     if (parse->map[i][j] != '1')
-    //         errors("Invalid map side 2");
-    //     i++;
-    // }
     i = parse->map_height - 1;
     j = 0;
     while (parse->map[i][j])

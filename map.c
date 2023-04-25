@@ -6,11 +6,11 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:52:40 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/25 12:31:05 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/25 16:52:52 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "parse.h"
 
 int is_map_el(char *line)
 {

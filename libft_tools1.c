@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   libft_tools1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 04:53:37 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/22 20:52:19 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/25 13:47:58 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "parse.h"
 
 int ft_isdigit(char *str)
 {

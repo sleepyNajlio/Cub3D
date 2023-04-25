@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   libft_tools.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:16:10 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/22 12:19:32 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/25 13:47:58 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "parse.h"
 
 int     ft_strncmp(char *s1, char *s2, int n)
 {

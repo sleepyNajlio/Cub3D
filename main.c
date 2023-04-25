@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:33 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/22 14:58:36 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/25 16:50:20 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "parse.h"
 
 int	main(int ac, char **av)
 {
@@ -18,4 +18,5 @@ int	main(int ac, char **av)
 
 	first_check(ac, av);
 	parse = parsing(av[1]);
+	return (0);
 }

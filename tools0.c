@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   tools0.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 01:20:20 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/22 14:51:36 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/25 16:52:03 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "parse.h"
 
 char	*remove_spc(char *line)
 {
@@ -42,7 +42,7 @@ char	*remove_nl(char *line)
 	char	*new;
 
 	i = 0;
-	while (line[i] != '\n')
+	while (line[i] && line[i] != '\n')
 		i++;
 	new = (char *)malloc(sizeof(char) * (i + 1));
 	i = 0;

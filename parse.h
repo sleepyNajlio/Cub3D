@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:59 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/25 12:14:19 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/25 13:48:53 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef PARSE_H
+# define PARSE_H
 # include <stdio.h>
 # include <math.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include "get_next_line.h"
+# include <fcntl.h>
+# include <stdlib.h>
+# include "get_next_line.h"
 
 typedef struct s_parse {
 	char	*no;
