@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:59 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/26 07:12:45 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/26 11:00:31 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include "get_next_line.h"
-# include "Leak_Hunter/leak_hunter.h"
 
 typedef struct s_parse {
 	char	*no;
