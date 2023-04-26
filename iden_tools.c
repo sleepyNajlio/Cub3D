@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iden_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 11:37:43 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/25 13:47:58 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/26 07:12:45 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ char **check_color(char *line)
     }
     if (i != 3)
         errors("invalid Color");
+    free(line);
     return (color);
 }
 
@@ -61,4 +62,5 @@ void	get_color(char *line, t_parse *parse)
         parse->floor = red << 16 | green << 8 | blue;
     else if (ft_strncmp(line, "C", 1) == 0)
         parse->ceiling = red << 16 | green << 8 | blue;
+    free_tab(color);
 }

@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 04:30:33 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/26 07:02:24 by nloutfi          ###   ########.fr       */
+/*   Created: 2023/04/26 06:59:33 by nloutfi           #+#    #+#             */
+/*   Updated: 2023/04/26 07:12:45 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-int	main(int ac, char **av)
+void free_tab(char **file)
 {
-	t_parse	*parse;
+    int i;
 
+    i = 0;
+    while (file && file[i])
+    {
+        free(file[i]);
+        i++;
+    }
+    free(file);
+}
 
-	atexit(leak_report);
-	first_check(ac, av);
-	parse = parsing(av[1]);
-	free_struct(parse);
-	return (0);
+void free_struct(t_parse *parse)
+{
+    if (parse->no)
+	    free(parse->no);
+    if (parse->so)
+	    free(parse->so);
+    if (parse->we)
+	    free(parse->we);
+    if (parse->ea)
+        free(parse->ea);
+	free_tab(parse->map);
+	free(parse);
 }

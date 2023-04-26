@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:59 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/25 13:48:53 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/26 07:12:45 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include "get_next_line.h"
+# include "Leak_Hunter/leak_hunter.h"
 
 typedef struct s_parse {
 	char	*no;
@@ -78,5 +79,8 @@ void 	check_player(t_parse *parse);
 void    check_chars(char **map);
 void    check_zero(t_parse *parse);
 
+// ft_free
+void free_tab(char **file);
+void free_struct(t_parse *parse);
 
 #endif
