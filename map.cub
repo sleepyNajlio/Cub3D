@@ -1,9 +1,9 @@
 
 
-NO      ./teapot.xpm
-SO ./teapot.xpm
-WE		./teapot.xpm       
-EA ./teapot.xpm
+NO ./map_stuff/teapot.xpm
+SO ./map_stuff/teapot.xpm
+WE ./map_stuff/teapot.xpm      
+EA ./map_stuff/teapot.xpm
 
 
 

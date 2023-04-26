@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:52:40 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/26 06:48:08 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/26 11:51:39 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int is_map_el(char *line)
     int i;
 
     i = 0;
+    if (!line)
+        return (2);
     while (line[i] == ' ' || line[i] == '\t')
         i++;
     if (line[i] == '1' || line[i] == '0')
@@ -83,6 +85,8 @@ void    parse_map(t_parse *parse, char **file)
     i = 0;
     while (!is_map_el(file[i]))
         i++;
+    if (is_map_el(file[i]) == 2)
+        errors("map Incomplete");
     parse->map_height = map_height(file, i);
     parse->map = (char **)malloc(sizeof(char *) * parse->map_height + 1);
     while (file[i])

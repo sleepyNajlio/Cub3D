@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identifiers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:32:10 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/25 13:47:58 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/26 11:31:34 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void    check_identifiers(t_parse *parse)
 		errors("invalid texture extension");
 	if ((open(parse->no, O_RDONLY)) == -1 || (open(parse->so, O_RDONLY)) == -1 
 		|| (open(parse->we, O_RDONLY)) == -1 || (open(parse->ea, O_RDONLY)) == -1)
-		errors("invalid path");
+		errors("invalid elements path");
 }
 
 int is_map_line(char *line)
@@ -87,5 +87,9 @@ void	identifiers(t_parse *parse, char **file)
 			errors("invalid element");
 		i++;
 	}
+	printf("NO: %d\n", open(parse->no, O_RDONLY));
+	printf("SO: %d\n", open(parse->so, O_RDONLY));
+	printf("WE: %d\n", open(parse->we, O_RDONLY));
+	printf("EA: %d\n", open(parse->ea, O_RDONLY));
     check_identifiers(parse);
 }
