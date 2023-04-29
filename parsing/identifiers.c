@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identifiers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:32:10 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/26 11:31:34 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/29 21:59:43 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ void	identifiers(t_parse *parse, char **file)
 			errors("invalid element");
 		i++;
 	}
-	printf("NO: %d\n", open(parse->no, O_RDONLY));
-	printf("SO: %d\n", open(parse->so, O_RDONLY));
-	printf("WE: %d\n", open(parse->we, O_RDONLY));
-	printf("EA: %d\n", open(parse->ea, O_RDONLY));
+	// printf("NO: %d\n", open(parse->no, O_RDONLY));
+	// printf("SO: %d\n", open(parse->so, O_RDONLY));
+	// printf("WE: %d\n", open(parse->we, O_RDONLY));
+	// printf("EA: %d\n", open(parse->ea, O_RDONLY));
     check_identifiers(parse);
 }

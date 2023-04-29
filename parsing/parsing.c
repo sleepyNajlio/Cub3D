@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:31:02 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/26 07:12:45 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/04/29 21:58:49 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_parse	*parsing(char *path)
 	file = fill_file(fd);
 	identifiers(parse, file);
 	parse_map(parse, file);
-	free_tab(file);
+	// free_tab(file);
 	// print_tab(file);
 	// print_parse(parse);
 	// close(fd);
