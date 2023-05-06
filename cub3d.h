@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:05:49 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/29 22:22:13 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/06 19:15:17 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,23 @@
 # include "parsing/parse.h"
 
 # define CELL_SIZE 32
+# define PI 3.14159265359
 
 #define BLUE 0x0000FF
 #define RED 0xFF0000
 #define GREEN 0x00FF00
 #define WHITE 0xFFFFFF
+#define BLACK 0x000000
 
 #define KEY_ESC 53
-#define KEY_W 13
 #define KEY_A 0
 #define KEY_S 1
 #define KEY_D 2
-
+#define KEY_W 13
+#define KEY_LEFT 123
+#define KEY_RIGHT 124
+#define KEY_DOWN 125
+#define KEY_UP 126
 
 typedef struct s_img 
 {
@@ -38,13 +43,29 @@ typedef struct s_img
 	int		endian;
 } t_img;
 
+typedef struct s_player
+{
+	float x;
+	float y;
+	float angle;
+} t_player;
+
 typedef struct s_data
 {
     void    *mlx;
     void    *win;
     t_img	*img;
 	t_parse *parse;
-    
+	t_player *player;
 }              t_data;
+
+// draw_2d
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
+void 	draw_square(t_img *img, int x, int y, int size, int color);
+void	draw_map(t_data *data);
+
+// hooks
+int	key_hook(int keycode, t_data *data);
+
 
 #endif
