@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:59 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/26 12:13:28 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/07 18:57:32 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_parse {
 	int 	player;
 	int 	player_x;
 	int 	player_y;
+	char 	player_dir;
 }	t_parse;
 
 
