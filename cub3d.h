@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:05:49 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/06 19:15:17 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/08 21:39:02 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # include "parsing/parse.h"
 
 # define CELL_SIZE 32
-# define PI 3.14159265359
+# define FOV_ANGLE (60 * (PI / 180))
+# define P_SPEED 14
+# define P_ROT_SPEED 0.1
 
 #define BLUE 0x0000FF
 #define RED 0xFF0000
