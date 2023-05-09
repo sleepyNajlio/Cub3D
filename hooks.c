@@ -98,6 +98,15 @@ void rot_left(t_data *data)
 	mlx_put_image_to_window(data->mlx, data->win, data->img->img, 0, 0);
 }
 
+void rot_right(t_data *data)
+{
+	data->player->angle -= P_ROT_SPEED;
+	if (data->player->angle < 0)
+		data->player->angle += 2 * M_PI;
+	draw_map(data);
+	mlx_put_image_to_window(data->mlx, data->win, data->img->img, 0, 0);
+}
+
 int	key_hook(int keycode, t_data *data)
 {
 	(void)data;
@@ -106,6 +115,7 @@ int	key_hook(int keycode, t_data *data)
 		mlx_destroy_window(data->mlx, data->win);
 		exit(0);
 	}
+	// printf("keycode: %d\n", keycode);
 	if (keycode == KEY_W || keycode == KEY_UP)
 		move_up(data);
 	if (keycode == KEY_S || keycode == KEY_DOWN)
@@ -116,5 +126,7 @@ int	key_hook(int keycode, t_data *data)
 		move_right(data);
 	if (keycode == KEY_LEFT)
 		rot_left(data);
+	if (keycode == KEY_RIGHT)
+		rot_right(data);
 	return (0);
 }
