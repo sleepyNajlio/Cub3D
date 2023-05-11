@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:05:49 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/08 21:39:02 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/11 01:48:32 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 # include "mlx/mlx.h"
 # include "parsing/parse.h"
 
-# define CELL_SIZE 32
-# define FOV_ANGLE (60 * (PI / 180))
-# define P_SPEED 14
+# define CELL_SIZE 64
+# define P_SPEED 10
 # define P_ROT_SPEED 0.1
 
 #define BLUE 0x0000FF
@@ -52,6 +51,15 @@ typedef struct s_player
 	float angle;
 } t_player;
 
+typedef struct s_rays
+{
+	float rx;
+	float ry;
+	float angle;
+	float xo;
+	float yo;
+} t_rays;
+
 typedef struct s_data
 {
     void    *mlx;
@@ -59,6 +67,7 @@ typedef struct s_data
     t_img	*img;
 	t_parse *parse;
 	t_player *player;
+	t_rays	rays;
 }              t_data;
 
 // draw_2d

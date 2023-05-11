@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:33 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/08 21:33:04 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/11 02:07:58 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,14 @@ void	game_init(t_data *data)
 	// print_player(data->player);
 	draw_map(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img->img, 0, 0);
+	// mlx_destroy_image(data->mlx, data->img->img);
+}
+
+int close_window(t_data *data)
+{
+	mlx_destroy_image(data->mlx, data->img->img);
+	mlx_destroy_window(data->mlx, data->win);
+	exit(0);
 }
 
 int	main(int ac, char **av)
@@ -51,7 +59,7 @@ int	main(int ac, char **av)
 	data->parse = parsing(av[1]);
 	game_init(data);
 	mlx_hook(data->win, 02, 1L<<0, key_hook, data);
-	mlx_hook(data->win, 03, 1L<<1, NULL, data);
+	mlx_hook(data->win, 17, 0, close_window, data);
 	mlx_loop(data->mlx);
 	free_struct(data->parse);
 	return (0);

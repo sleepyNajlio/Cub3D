@@ -1,4 +1,6 @@
 
+GREEN_COLOR = \033[0;32m
+
 NAME	= Cub3D
 
 SRC			= main.c parsing/errors.c parsing/libft_tools.c parsing/get_next_line.c parsing/get_next_line_utils.c parsing/parsing.c\
@@ -16,7 +18,7 @@ all : $(NAME)
 $(NAME) : $(SRC)
 	@make all -C ./mlx
 	@$(CC) $(FLAGS) $(SRC) $(FRAMEWORK) ./mlx/libmlx.a -o $(NAME)
-	@echo "✅"
+	@echo "${GREEN_COLOR}Compiling done !"
 
 clean :
 	@make clean -C ./mlx

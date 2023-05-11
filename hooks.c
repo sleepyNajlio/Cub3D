@@ -5,21 +5,14 @@ int	check_wall(t_parse *parse, float x, float y)
 
 	int x1;
 	int y1;
-	// int x2;
-	// int y2;
-
-
-	x1 = floor(x  / CELL_SIZE);
-	y1 = floor(y / CELL_SIZE);
-	// x2 = floor((x + CELL_SIZE) / CELL_SIZE);
-	// y2 = floor((y + CELL_SIZE) / CELL_SIZE);
-	// printf("x1: %d\n", x1);
-	// printf("y1: %d\n", y1);
-	// if (x1 < 0 || y1 < 0 ||  x1 >= parse->map_width || y1 >= parse->map_height)
-		// return (1);
-	// if (x2 < 0 || y2 < 0 ||  x2 >= parse->map_width || y2 >= parse->map_height)
-		// return (1);
-	if (parse->map[y1][x1] == '1')
+	int x2;
+	int y2;
+	
+	x1 = floor((x + (CELL_SIZE / 3)) / CELL_SIZE );
+	y1 = floor((y + (CELL_SIZE / 3)) / CELL_SIZE);
+	x2 = floor((x - (CELL_SIZE / 3)) / CELL_SIZE );
+	y2 = floor((y - (CELL_SIZE / 3)) / CELL_SIZE);
+	if (parse->map[y1][x1] == '1' || parse->map[y2][x2] == '1')
 		return (1);
 	return (0);
 }
@@ -89,7 +82,7 @@ void move_right(t_data *data)
 	}
 }
 
-void rot_left(t_data *data)
+void rot_right(t_data *data)
 {
 	data->player->angle += P_ROT_SPEED;
 	if (data->player->angle > 2 * M_PI)
@@ -98,7 +91,7 @@ void rot_left(t_data *data)
 	mlx_put_image_to_window(data->mlx, data->win, data->img->img, 0, 0);
 }
 
-void rot_right(t_data *data)
+void rot_left(t_data *data)
 {
 	data->player->angle -= P_ROT_SPEED;
 	if (data->player->angle < 0)
@@ -112,9 +105,11 @@ int	key_hook(int keycode, t_data *data)
 	(void)data;
 	if (keycode == KEY_ESC)
 	{
+		mlx_destroy_image(data->mlx, data->img->img);
 		mlx_destroy_window(data->mlx, data->win);
 		exit(0);
 	}
+	
 	// printf("keycode: %d\n", keycode);
 	if (keycode == KEY_W || keycode == KEY_UP)
 		move_up(data);

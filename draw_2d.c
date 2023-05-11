@@ -45,30 +45,6 @@ void	draw_circle(t_img *img, int x, int y, int radius, int color)
 	}
 }
 
-
-// void	draw_line(t_img *img, float x1, float y1, float x2, float y2, int color)
-// {
-// 	float x;
-// 	float y;
-// 	float dx;
-// 	float dy;
-// 	float step;
-
-// 	dx = x2 - x1;
-// 	dy = y2 - y1;
-// 	step = (fabs(dx) > fabs(dy)) ? fabs(dx) : fabs(dy);
-// 	dx /= step;
-// 	dy /= step;
-// 	x = x1;
-// 	y = y1;
-// 	while (step--)
-// 	{
-// 		my_mlx_pixel_put(img, x, y, color);
-// 		x += dx;
-// 		y += dy;
-// 	}
-// }
-
 void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color)
 {
 	int	dx = abs(x1 - x0);
@@ -97,6 +73,51 @@ void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color)
 	}
 }
 
+void  draw_rays(t_data *data)
+{
+	float atan;
+	int dof;
+
+	dof = 0;
+	data->rays.angle = data->player->angle;
+	atan = -1 / tan(data->rays.angle);
+	// checkin horizontal lines
+	if (data->rays.angle > M_PI) // looking up
+	{
+		data->rays.ry = (int)data->player->x / CELL_SIZE * CELL_SIZE - 0.0001;
+		data->rays.rx = (data->player->y - data->rays.ry) * atan + data->player->x;
+		data->rays.yo =- CELL_SIZE;
+		data->rays.xo = -data->rays.yo * atan;
+	}
+	if (data->rays.angle < M_PI) // looking down
+	{
+		data->rays.ry = (int)data->player->x / CELL_SIZE * CELL_SIZE + CELL_SIZE;
+		data->rays.rx = (data->player->y - data->rays.ry) * atan + data->player->x;
+		data->rays.yo = CELL_SIZE;
+		data->rays.xo = -data->rays.yo * atan;
+	}
+	if (data->rays.angle == 0 || data->rays.angle == M_PI) // looking straight left or right
+	{
+		data->rays.rx = data->player->x;
+		data->rays.ry = data->player->y;
+		data->rays.xo = 0;
+		data->rays.yo = 0;
+	}
+	// printf("rx = %f, ry = %f\n", data->rays.rx, data->rays.ry);
+	while (dof < 8)
+	{
+		if (data->parse->map[(int)(data->rays.ry / CELL_SIZE)][(int)(data->rays.rx / CELL_SIZE)] == '1')
+			dof = 8;
+		else
+		{
+			data->rays.rx += data->rays.xo;
+			data->rays.ry += data->rays.yo;
+			dof++;
+		}
+	}
+	draw_line(data->img, data->player->x, data->player->y, data->rays.rx, data->rays.ry, GREEN);
+}
+
 void	draw_player(t_data *data)
 {
 
@@ -107,16 +128,9 @@ void	draw_player(t_data *data)
 	x = data->player->x;
 	y = data->player->y;
 	angle = data->player->angle;
-	draw_circle(data->img, x - CELL_SIZE / 2, y - CELL_SIZE / 2, CELL_SIZE / 2, GREEN);
+	draw_circle(data->img, x - CELL_SIZE / 2, y - CELL_SIZE / 2, CELL_SIZE / 2, RED);
 	draw_line(data->img, x, y, x + cos(angle) * CELL_SIZE / 2, y + sin(angle) * CELL_SIZE / 2, RED);
-	// draw_square(data->img, x - CELL_SIZE / 4, y - CELL_SIZE / 4, CELL_SIZE / 2, GREEN);
-	// draw_square(data->img , x + (size / 2) * cos(angle), y + (size / 2) * sin(angle), 8, RED);
-	// draw_line(data->img, x ,y , x + cos(angle) * P_SPEED, y + sin(angle) * P_SPEED, RED);
-	// draw_line(data->img, x, y , )
-	// draw_square(data->img, x + size * cos(angle), y + size * sin(angle), 5, RED);
-	// draw_square(data->img, x + size * cos(angle + PI / 2), y + size * sin(angle + PI / 2), 5, GREEN);
-	// draw_square(data->img, x + size * cos(angle - PI / 2), y + size * sin(angle - PI / 2), 5, GREEN);
-	// draw_square(data->img, x + size * cos(angle + PI), y + size * sin(angle + PI), 5, GREEN);
+	draw_rays(data);
 }
 
 void	draw_map(t_data *data)
