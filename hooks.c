@@ -17,7 +17,7 @@ int	check_wall(t_parse *parse, float x, float y)
 	return (0);
 }
 
-void move_up(t_data *data)
+void move_down(t_data *data)
 {
 	float new_x;
 	float new_y;
@@ -33,7 +33,7 @@ void move_up(t_data *data)
 	}
 }
 
-void move_down(t_data *data)
+void move_up(t_data *data)
 {
 	float new_x;
 	float new_y;
@@ -49,7 +49,7 @@ void move_down(t_data *data)
 	}
 }
 
-void move_left(t_data *data)
+void move_right(t_data *data)
 {
 	float new_x;
 	float new_y;
@@ -65,7 +65,7 @@ void move_left(t_data *data)
 	}
 }
 
-void move_right(t_data *data)
+void move_left(t_data *data)
 {
 	
 	float new_x;

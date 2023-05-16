@@ -73,25 +73,36 @@ void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color)
 	}
 }
 
+
+
+
 void  draw_rays(t_data *data)
 {
 	float atan;
 	int dof;
+	// int mp;
+	int mx;
+	int my;
 
 	dof = 0;
 	data->rays.angle = data->player->angle;
 	atan = -1 / tan(data->rays.angle);
+	printf("ra = %f \n", data->rays.angle);
 	// checkin horizontal lines
-	if (data->rays.angle > M_PI) // looking up
+	if (data->rays.angle < M_PI) // looking up
 	{
-		data->rays.ry = (int)data->player->x / CELL_SIZE * CELL_SIZE - 0.0001;
+		printf("hanaaa \n");
+		data->rays.ry = (((int)data->player->y / CELL_SIZE) * CELL_SIZE )- 0.0001;
 		data->rays.rx = (data->player->y - data->rays.ry) * atan + data->player->x;
-		data->rays.yo =- CELL_SIZE;
+		data->rays.yo = - CELL_SIZE;
 		data->rays.xo = -data->rays.yo * atan;
+		// printf("rx = %f, ry = %f\n", data->rays.rx, data->rays.ry);
 	}
-	if (data->rays.angle < M_PI) // looking down
+	// printf("%f  %f\n", data->rays.ry, data->rays.rx);
+	if (data->rays.angle > M_PI) // looking down
 	{
-		data->rays.ry = (int)data->player->x / CELL_SIZE * CELL_SIZE + CELL_SIZE;
+		printf("hanaaa1  \n");
+		data->rays.ry = (((int)data->player->y / CELL_SIZE) * CELL_SIZE) + CELL_SIZE;
 		data->rays.rx = (data->player->y - data->rays.ry) * atan + data->player->x;
 		data->rays.yo = CELL_SIZE;
 		data->rays.xo = -data->rays.yo * atan;
@@ -100,13 +111,18 @@ void  draw_rays(t_data *data)
 	{
 		data->rays.rx = data->player->x;
 		data->rays.ry = data->player->y;
-		data->rays.xo = 0;
-		data->rays.yo = 0;
+		// data->rays.xo = 0;
+		// data->rays.yo = 0;
+		dof = 8;
 	}
-	// printf("rx = %f, ry = %f\n", data->rays.rx, data->rays.ry);
+	printf("rx = %f, ry = %f\n", data->rays.rx, data->rays.ry);
 	while (dof < 8)
 	{
-		if (data->parse->map[(int)(data->rays.ry / CELL_SIZE)][(int)(data->rays.rx / CELL_SIZE)] == '1')
+		mx = data->rays.rx / CELL_SIZE;
+		my = data->rays.ry / CELL_SIZE;
+		printf("%d  %d \n", mx, my);
+		// mp = ((data->rays.rx / CELL_SIZE) * data->parse->map_width) + (data->rays.ry / CELL_SIZE);
+		if ( mx < 0 || my < 0 || mx > data->parse->map_height || my > data->parse->map_width || data->parse->map[my][mx] == '1')
 			dof = 8;
 		else
 		{
@@ -128,8 +144,9 @@ void	draw_player(t_data *data)
 	x = data->player->x;
 	y = data->player->y;
 	angle = data->player->angle;
+	// printf("ra = %f \n", angle);
 	draw_circle(data->img, x - CELL_SIZE / 2, y - CELL_SIZE / 2, CELL_SIZE / 2, RED);
-	draw_line(data->img, x, y, x + cos(angle) * CELL_SIZE / 2, y + sin(angle) * CELL_SIZE / 2, RED);
+	draw_line(data->img, x, y, x - cos(angle) * CELL_SIZE / 2, y - sin(angle) * CELL_SIZE / 2, BLUE);
 	draw_rays(data);
 }
 
