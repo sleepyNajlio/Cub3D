@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:05:49 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/11 01:48:32 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/18 00:49:26 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@
 #define KEY_DOWN 125
 #define KEY_UP 126
 
+// #define PI 3.1415926535
+// #define P2 1.570796
+
 typedef struct s_img 
 {
 	void	*img;
@@ -55,7 +58,7 @@ typedef struct s_rays
 {
 	float rx;
 	float ry;
-	float angle;
+	double angle;
 	float xo;
 	float yo;
 } t_rays;

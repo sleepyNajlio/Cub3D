@@ -78,52 +78,94 @@ void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color)
 
 void  draw_rays(t_data *data)
 {
-	float atan;
+	double atan;
+	double ntan;	
 	int dof;
-	// int mp;
 	int mx;
 	int my;
 
+	// dof = 0;
+	// data->rays.angle = data->player->angle;
+	// atan = -1 / tan(data->rays.angle);
+	// // checkin horizontal lines
+	// if (data->rays.angle < M_PI) // looking up
+	// {
+	// 	data->rays.ry = (((int)data->player->y / CELL_SIZE) * CELL_SIZE )- 0.0001;
+	// 	data->rays.rx = (data->player->y - data->rays.ry) * atan + data->player->x;
+	// 	data->rays.yo = - CELL_SIZE;
+	// 	data->rays.xo = -data->rays.yo * atan;
+	// }
+	// if (data->rays.angle > M_PI) // looking down
+	// {
+	// 	data->rays.ry = (((int)data->player->y / CELL_SIZE) * CELL_SIZE) + CELL_SIZE;
+	// 	data->rays.rx = (data->player->y - data->rays.ry) * atan + data->player->x;
+	// 	data->rays.yo = CELL_SIZE;
+	// 	data->rays.xo = -data->rays.yo * atan;
+	// }
+	// if (data->rays.angle == 0 || data->rays.angle == M_PI) // looking straight left or right
+	// {
+	// 	data->rays.rx = data->player->x;
+	// 	data->rays.ry = data->player->y;
+	// 	// data->rays.xo = 0;
+	// 	// data->rays.yo = 0;
+	// 	dof = data->parse->map_height;
+	// }
+	// while (dof < data->parse->map_height)
+	// {
+	// 	mx = data->rays.rx / CELL_SIZE;
+	// 	my = data->rays.ry / CELL_SIZE;
+	// 	if ( mx < 0 || my < 0 || mx > data->parse->map_width || my > data->parse->map_height || data->parse->map[my][mx] == '1')
+	// 			dof = data->parse->map_height;
+	// 	else
+	// 	{
+	// 		data->rays.rx += data->rays.xo;
+	// 		data->rays.ry += data->rays.yo;
+	// 		dof++;
+	// 	}
+	// }
+	// draw_line(data->img, data->player->x, data->player->y, data->rays.rx, data->rays.ry, GREEN);
+
 	dof = 0;
 	data->rays.angle = data->player->angle;
+	if (data->player->angle == 1)
+		ntan =tan(data->rays.angle);
+	else
+		ntan = 0;
+	// printf("%f  %fn", data->rays.angle, ntan);
+
 	atan = -1 / tan(data->rays.angle);
-	printf("ra = %f \n", data->rays.angle);
-	// checkin horizontal lines
-	if (data->rays.angle < M_PI) // looking up
+
+
+	// printf("%f  %f\n", data->rays.angle, ntan);
+	// checkin vertical lines
+	if (data->rays.angle < M_PI) // looking left
 	{
-		printf("hanaaa \n");
-		data->rays.ry = (((int)data->player->y / CELL_SIZE) * CELL_SIZE )- 0.0001;
-		data->rays.rx = (data->player->y - data->rays.ry) * atan + data->player->x;
-		data->rays.yo = - CELL_SIZE;
-		data->rays.xo = -data->rays.yo * atan;
-		// printf("rx = %f, ry = %f\n", data->rays.rx, data->rays.ry);
+		data->rays.rx = (((int)data->player->x / CELL_SIZE) * CELL_SIZE )- 0.0001;
+		data->rays.ry = (data->player->x - data->rays.rx) * ntan + data->player->y;
+		data->rays.xo = - CELL_SIZE;
+		data->rays.yo = -data->rays.xo * ntan;
 	}
-	// printf("%f  %f\n", data->rays.ry, data->rays.rx);
-	if (data->rays.angle > M_PI) // looking down
+	if (data->rays.angle > M_PI) // looking right
 	{
-		printf("hanaaa1  \n");
-		data->rays.ry = (((int)data->player->y / CELL_SIZE) * CELL_SIZE) + CELL_SIZE;
-		data->rays.rx = (data->player->y - data->rays.ry) * atan + data->player->x;
-		data->rays.yo = CELL_SIZE;
-		data->rays.xo = -data->rays.yo * atan;
+		data->rays.rx = (((int)data->player->x / CELL_SIZE) * CELL_SIZE) + CELL_SIZE;
+		data->rays.ry = (data->player->x - data->rays.rx) * ntan + data->player->y;
+		data->rays.xo = CELL_SIZE;
+		data->rays.yo = -data->rays.xo * ntan;
 	}
-	if (data->rays.angle == 0 || data->rays.angle == M_PI) // looking straight left or right
+	if (data->rays.angle == 0 || data->rays.angle == M_PI) // looking up or down
 	{
 		data->rays.rx = data->player->x;
 		data->rays.ry = data->player->y;
 		// data->rays.xo = 0;
 		// data->rays.yo = 0;
-		dof = 8;
+		dof = data->parse->map_height;
 	}
-	printf("rx = %f, ry = %f\n", data->rays.rx, data->rays.ry);
-	while (dof < 8)
+	while (dof < data->parse->map_height)
 	{
 		mx = data->rays.rx / CELL_SIZE;
 		my = data->rays.ry / CELL_SIZE;
-		printf("%d  %d \n", mx, my);
-		// mp = ((data->rays.rx / CELL_SIZE) * data->parse->map_width) + (data->rays.ry / CELL_SIZE);
-		if ( mx < 0 || my < 0 || mx > data->parse->map_height || my > data->parse->map_width || data->parse->map[my][mx] == '1')
-			dof = 8;
+		if ( mx < 0 || my < 0 || mx > data->parse->map_width || my > data->parse->map_height || data->parse->map[my][mx] == '1')
+				dof = data->parse->map_height;
 		else
 		{
 			data->rays.rx += data->rays.xo;
@@ -132,7 +174,9 @@ void  draw_rays(t_data *data)
 		}
 	}
 	draw_line(data->img, data->player->x, data->player->y, data->rays.rx, data->rays.ry, GREEN);
-}
+
+
+	}
 
 void	draw_player(t_data *data)
 {

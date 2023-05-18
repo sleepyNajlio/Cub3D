@@ -6,7 +6,7 @@
 /*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:33 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/16 18:38:40 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/18 01:22:11 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_player(t_player *player, t_parse *parse)
 	player->x = parse->player_x * CELL_SIZE + CELL_SIZE / 2;
 	player->y = parse->player_y * CELL_SIZE + CELL_SIZE / 2;
 	if (parse->player_dir == 'N')
-		player->angle = M_PI_2;
+		player->angle = 1;
 	else if (parse->player_dir == 'S')
 		player->angle = M_PI * 3 / 2;
 	else if (parse->player_dir == 'E')
