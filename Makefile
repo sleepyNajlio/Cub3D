@@ -5,7 +5,8 @@ NAME	= Cub3D
 
 SRC			= main.c parsing/errors.c parsing/libft_tools.c parsing/get_next_line.c parsing/get_next_line_utils.c parsing/parsing.c\
 			parsing/identifiers.c parsing/iden_tools.c parsing/libft_tools1.c parsing/tools0.c parsing/map.c parsing/map_check.c\
-			parsing/ft_free.c hooks.c draw_2d.c 
+			parsing/ft_free.c draw_2d.c raycasting/initiallize.c raycasting/draw.c raycasting/hooks.c raycasting/hooks_utils.c\
+			raycasting/raycasting.c
 
 FLAGS		= -Wall -Werror -Wextra -g 
 
@@ -16,12 +17,10 @@ CC			= cc
 all : $(NAME)
 
 $(NAME) : $(SRC)
-	@make all -C ./mlx
-	@$(CC) $(FLAGS) $(SRC) $(FRAMEWORK) ./mlx/libmlx.a -o $(NAME)
+	$(CC) $(FLAGS) $(SRC) -lmlx -framework OpenGL -framework appKit -o $(NAME)
 	@echo "${GREEN_COLOR}Compiling done !"
 
 clean :
-	@make clean -C ./mlx
 	@rm -f $(NAME)
 	@echo "❌"
 	
