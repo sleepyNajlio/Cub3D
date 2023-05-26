@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:52:40 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/26 08:46:22 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/26 08:50:08 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ char *fill_map_line(char *line, int width)
 
     i = 0;
     map_line = malloc(sizeof(char) * width + 1);
-    while(i <= width)
+    while(i < width)
     {
-        if (line[i] && line[i] != ' ' && line[i] != '\t')
+        if (line[i] && !ft_isspace(line[i]))
             map_line[i] = line[i];
         else
             map_line[i] = '2';
