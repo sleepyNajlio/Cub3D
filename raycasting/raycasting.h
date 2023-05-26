@@ -6,7 +6,7 @@
 /*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:47:05 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/24 05:11:31 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/25 06:41:41 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,10 @@ double	standardized_range(double angle);
 int		draw_again(t_data *data);
 int		check_wall(t_parse *parse, double x, double y);
 void	raycasting(t_data *data);
+void	inc_ray(t_data *data, int i);
+void	stop_inc(t_data *data, int i);
+void	delta_x_y(t_data *data, int i);
+void	x_y_first_inter(t_data *data, int i);
+void	facing_dir(t_data *data, int i);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:05:49 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/24 03:39:16 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/25 11:43:13 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUB3D_H
 # include <mlx.h>
 # include "parsing/parse.h"
+# include <limits.h>
 
 # define CELL_SIZE 64
 # define P_SPEED 10
@@ -56,6 +57,31 @@ typedef struct s_ray
 	double	fov_angle;
 	double	num_rays;
 	double	ray_angle;
+	double	distance;
+	int		isfacingdown;
+	int		isfacingup;
+	int		isfacingleft;
+	int		isfacingright;
+	double	yintercept;
+	double	xintercept;
+	double	ystep;
+	double	xstep;
+	double	nxt_horz_x_inter;
+	double	nxt_ver_x_inter;
+	double	nxt_horz_y_inter;
+	double	nxt_ver_y_inter;
+	int		found_h_wall_hit;
+	int		found_v_wall_hit;
+	double	hor_wall_hit_x;
+	double	ver_wall_hit_x;
+	double	hor_wall_hit_y;
+	double	ver_wall_hit_y;
+	double	wall_x;
+	double	wall_y;
+	int		was_hit_vertical;
+	
+
+	
 }	t_ray;
 
 typedef struct s_data

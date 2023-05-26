@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:41:00 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/07 18:51:24 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/25 06:54:26 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,9 @@ void    check_zero(t_parse *parse)
             if (parse->map[i][j] == '0')
             {
                 if (!parse->map[i][j - 1] || !parse->map[i][j + 1] || !parse->map[i - 1][j] || !parse->map[i + 1][j])
-                    errors("Invalid map (zero)");
+                    errors("Invalid map (zero)11");
                 if (parse->map[i][j - 1] == ' ' || parse->map[i][j + 1] == ' ' || parse->map[i - 1][j] == ' ' || parse->map[i + 1][j] == ' ')
-                    errors("Invalid map (zero)");
+                    errors("Invalid map (zero)22");
             }
             j++;
         }

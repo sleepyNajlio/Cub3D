@@ -6,7 +6,7 @@
 /*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:45:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/24 05:45:29 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/25 04:13:52 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	init_rays(t_data *data)
 		data->rays[i].fov_angle = 60 * (M_PI / 180);
 		data->rays[i].num_rays = data->parse->map_width * CELL_SIZE;
 		data->rays[i].ray_angle = 0;
+		data->rays[i].distance = 0;
 		i++;
 	}
 }

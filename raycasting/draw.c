@@ -6,7 +6,7 @@
 /*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:29:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/24 05:42:28 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/25 11:58:27 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	draw_player(t_data *data)
 	angle = data->player->angle;
 	draw_circle(data->img, x - CELL_SIZE / 2, y - CELL_SIZE / 2,
 		CELL_SIZE / 2, RED);
-	draw_line(data->img, x, y, x + cos(angle) * CELL_SIZE / 2,
-		y + sin(angle) * CELL_SIZE / 2, BLUE);
+	draw_line(data->img, x, y, x + cos(data->player->angle) * CELL_SIZE / 2,
+		y + sin(data->player->angle) * CELL_SIZE / 2, BLUE);
 }
 
 void	draw_ray(t_data *data)
@@ -38,8 +38,11 @@ void	draw_ray(t_data *data)
 	y = data->player->y;
 	while (i < data->rays->num_rays)
 	{
-		draw_line(data->img, x, y, x + cos(data->rays[i].ray_angle) * CELL_SIZE*2,
-				y + sin(data->rays[i].ray_angle) * CELL_SIZE*2, GREEN);
+		//draw hor_ray
+		// draw_line(data->img, x, y, data->rays[i].hor_wall_hit_x, data->rays[i].hor_wall_hit_y, GREEN);
+		//draw ver_ray
+		// draw_line(data->img, x, y, data->rays[i].ver_wall_hit_x, data->rays[i].ver_wall_hit_y, RED);
+		draw_line(data->img, x, y, data->rays[i].wall_x, data->rays[i].wall_y, RED);
 		i++;
 	}
 }
@@ -78,8 +81,7 @@ void	main_draw(t_data *data)
 
 	raycasting(data);
 	
-	draw_player(data);
-	// for(int ll = 0; ll < data->rays->num_rays; ll++)
 	draw_ray(data);		
+	draw_player(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img->img, 0, 0);
 }

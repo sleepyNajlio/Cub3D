@@ -6,7 +6,7 @@
 /*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:29:17 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/24 05:11:31 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/25 06:12:28 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ void	rot_right(t_data *data)
 double	standardized_range(double angle)
 {
 	angle = remainder(angle, 2 * M_PI);
-	if (angle < 0)
-		angle += 2 * M_PI;
-	return (angle);
+    if (angle < 0) {
+        angle = (2 * M_PI) + angle;
+    }
+    return angle;
 }
 
 int	draw_again(t_data *data)
