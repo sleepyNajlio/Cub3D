@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initiallize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:45:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/25 04:13:52 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/26 08:14:32 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	init_player(t_player *player, t_parse *parse)
 {
-	player->x = parse->player_x * CELL_SIZE + CELL_SIZE / 2;
-	player->y = parse->player_y * CELL_SIZE + CELL_SIZE / 2;
+	player->x = parse->player_x * parse->map_scale + parse->map_scale / 2;
+	player->y = parse->player_y * parse->map_scale + parse->map_scale / 2;
 	if (parse->player_dir == 'N')
 		player->angle = M_PI * 1.5;
 	else if (parse->player_dir == 'S')
@@ -47,8 +47,7 @@ void	game_init(t_data *data)
 	data->img = (t_img *)malloc(sizeof(t_img));
 	data->player = (t_player *)malloc(sizeof(t_player));
 	data->mlx = mlx_init();
-	data->win = mlx_new_window(data->mlx, data->parse->map_width * CELL_SIZE, \
-			data->parse->map_height * CELL_SIZE, "cub3d");
+	data->win = mlx_new_window(data->mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3d");
 	init_player(data->player, data->parse);
 	init_rays(data);
 	main_draw(data);

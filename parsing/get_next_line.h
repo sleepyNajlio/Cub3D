@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 16:29:13 by fel-fil           #+#    #+#             */
-/*   Updated: 2022/02/22 16:13:13 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/26 08:17:38 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# include<stdlib.h>
-# include<stdio.h>
+# include <stdlib.h>
+# include <stdio.h>
 # include <unistd.h>
-# include<string.h>
+# include <string.h>
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
 # endif

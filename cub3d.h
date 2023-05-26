@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:05:49 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/26 03:30:41 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/26 07:21:24 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define GREEN 0x00FF00
 # define WHITE 0xFFFFFF
 # define BLACK 0x000000
+# define GRAY 0x808080
 
 # define KEY_ESC 53
 # define KEY_A 0

@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:59 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/07 18:57:32 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/26 07:42:38 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include "get_next_line.h"
+
+# define SCREEN_WIDTH 1280
+# define SCREEN_HEIGHT 720
 
 
 typedef struct s_parse {
@@ -30,6 +33,7 @@ typedef struct s_parse {
 	char 	**map;
 	int 	map_width;
 	int 	map_height;
+	int 	map_scale;
 	int 	player;
 	int 	player_x;
 	int 	player_y;
