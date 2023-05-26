@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:41:00 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/26 07:46:18 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/26 08:39:00 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ void    check_chars(char **map)
         j = 0;
         while (map[i][j])
         {
-            if (map[i][j] != '1' && !ft_isspace(map[i][j]) && map[i][j] != '0'
-               && map[i][j] != 'N' && map[i][j] != 'S' && map[i][j] != 'E'
+            if (map[i][j] != '1'  && map[i][j] != '0' && map[i][j] != 'N' && map[i][j] != 'S' && map[i][j] != 'E' \
                && map[i][j] != 'W' && map[i][j] != '2')
-                errors("Invalid character in map");
+               {
+                     printf("map[%d][%d] = %c\n",i, j,  map[i][j]);
+                     errors("Invalid character in map");
+               }
+                // errors("Invalid character in map");
             j++;
         }
         i++;
@@ -52,6 +55,7 @@ void check_player(t_parse *parse)
                     parse->player_x = j;
                     parse->player_y = i;
                     parse->player_dir = parse->map[i][j];
+                    parse->map[i][j] = '0';
                 }
             j++;
         }
@@ -98,7 +102,7 @@ void    check_zero(t_parse *parse)
             {
                 if (!parse->map[i][j - 1] || !parse->map[i][j + 1] || !parse->map[i - 1][j] || !parse->map[i + 1][j])
                     errors("Invalid map (zero)11");
-                if (parse->map[i][j - 1] == ' ' || parse->map[i][j + 1] == ' ' || parse->map[i - 1][j] == ' ' || parse->map[i + 1][j] == ' ')
+                if (parse->map[i][j - 1] == '2' || parse->map[i][j + 1] == '2' || parse->map[i - 1][j] == '2' || parse->map[i + 1][j] == '2')
                     errors("Invalid map (zero)22");
             }
             j++;

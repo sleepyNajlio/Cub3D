@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:29:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/26 08:16:30 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/26 08:34:35 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	draw_player(t_data *data)
 	x = data->player->x;
 	y = data->player->y;
 	angle = data->player->angle;
-	draw_circle(data->img, x - scale / 2, y - scale,
-		scale / 2, RED);
+	draw_circle(data->img, x - scale / 2, y - scale / 2, scale / 2, RED);
 	draw_line(data->img, x, y, x + cos(data->player->angle) * scale / 2,
 		y + sin(data->player->angle) * scale / 2, BLUE);
 }
@@ -85,9 +84,9 @@ void	main_draw(t_data *data)
 		i++;
 	}
 
-	// raycasting(data);
+	raycasting(data);
 	
-	// draw_ray(data);		
+	draw_ray(data);		
 	draw_player(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img->img, 0, 0);
 }
