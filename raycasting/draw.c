@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:29:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/26 08:34:35 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/26 10:35:38 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	draw_player(t_data *data)
 	int		scale;
 
 	
-	scale = data->parse->map_scale;
+	scale = data->parse->cell_size;
 	x = data->player->x;
 	y = data->player->y;
 	angle = data->player->angle;
@@ -53,12 +53,12 @@ void	main_draw(t_data *data)
 {
 	int	i;
 	int	j;
-	int map_scale;
+	int cell_size;
 
-	map_scale = data->parse->map_scale;
+	cell_size = data->parse->cell_size;
 	i = 0;
 	data->img->img = mlx_new_image(data->mlx,
-			SCREEN_WIDTH, SCREEN_HEIGHT);
+			data->parse->map_width * cell_size, data->parse->map_height * cell_size);
 	data->img->addr = mlx_get_data_addr(data->img->img,
 			&data->img->bits_per_pixel, &data->img->line_length,
 			&data->img->endian);
@@ -68,25 +68,25 @@ void	main_draw(t_data *data)
 		while (data->parse->map[i][j])
 		{
 			if (data->parse->map[i][j] == '1')
-				draw_square(data->img, j * map_scale, i * map_scale, map_scale, BLUE);
+				draw_square(data->img, j * cell_size, i * cell_size, cell_size, BLUE);
 			else if (data->parse->map[i][j] == '0')
 			{
-				draw_square(data->img, j * map_scale, i * map_scale, map_scale, WHITE);
-				draw_line(data->img, j * map_scale, i * map_scale, (j + 1) * map_scale, i * map_scale, BLACK);
-				draw_line(data->img, j * map_scale, i * map_scale, j * map_scale, (i + 1) * map_scale, BLACK);
-				draw_line(data->img, (j + 1) * map_scale, i * map_scale, (j + 1) * map_scale, (i + 1) * map_scale, BLACK);
-				draw_line(data->img, j * map_scale, (i + 1) * map_scale, (j + 1) * map_scale, (i + 1) * map_scale, BLACK);
+				draw_square(data->img, j * cell_size, i * cell_size, cell_size, WHITE);
+				draw_line(data->img, j * cell_size, i * cell_size, (j + 1) * cell_size, i * cell_size, BLACK);
+				draw_line(data->img, j * cell_size, i * cell_size, j * cell_size, (i + 1) * cell_size, BLACK);
+				draw_line(data->img, (j + 1) * cell_size, i * cell_size, (j + 1) * cell_size, (i + 1) * cell_size, BLACK);
+				draw_line(data->img, j * cell_size, (i + 1) * cell_size, (j + 1) * cell_size, (i + 1) * cell_size, BLACK);
 			}
 			else
-				draw_square(data->img, j * map_scale, i * map_scale, map_scale, GRAY);
+				draw_square(data->img, j * cell_size, i * cell_size, cell_size, GRAY);
 			j++;
 		}
 		i++;
 	}
 
-	raycasting(data);
+	// raycasting(data);
 	
-	draw_ray(data);		
+	// draw_ray(data);		
 	draw_player(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img->img, 0, 0);
 }

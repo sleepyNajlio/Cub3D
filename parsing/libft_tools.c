@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:16:10 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/25 13:47:58 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/26 11:48:01 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strdup(char *s)
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!str)
 		return (NULL);
-	while (s[i])
+	while (s && s[i])
 	{
 		str[i] = s[i];
 		i++;

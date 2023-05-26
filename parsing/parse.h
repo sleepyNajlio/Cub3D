@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:59 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/26 07:42:38 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/26 10:09:33 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_parse {
 	char 	**map;
 	int 	map_width;
 	int 	map_height;
-	int 	map_scale;
+	int 	cell_size;
 	int 	player;
 	int 	player_x;
 	int 	player_y;

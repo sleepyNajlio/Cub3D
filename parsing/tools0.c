@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 01:20:20 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/25 16:52:03 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/26 10:54:42 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*remove_nl(char *line)
 	i = 0;
 	while (line[i] && line[i] != '\n')
 		i++;
-	new = (char *)malloc(sizeof(char) * (i + 1));
+	new = malloc(sizeof(char) * (i + 1));
 	i = 0;
 	while (line[i] && line[i] != '\n')
 	{

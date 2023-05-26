@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:29:17 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/25 06:12:28 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/26 11:16:34 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int	check_wall(t_parse *parse, double x, double y)
 	int	x2;
 	int	y2;
 
-	x1 = floor((x + (CELL_SIZE / 3)) / CELL_SIZE);
-	y1 = floor((y + (CELL_SIZE / 3)) / CELL_SIZE);
-	x2 = floor((x - (CELL_SIZE / 3)) / CELL_SIZE);
-	y2 = floor((y - (CELL_SIZE / 3)) / CELL_SIZE);
+	x1 = floor((x + (parse->cell_size / 3)) / parse->cell_size);
+	y1 = floor((y + (parse->cell_size / 3)) / parse->cell_size);
+	x2 = floor((x - (parse->cell_size / 3)) / parse->cell_size);
+	y2 = floor((y - (parse->cell_size / 3)) / parse->cell_size);
 	if (parse->map[y1][x1] == '1' || parse->map[y2][x2] == '1')
 		return (1);
 	return (0);
