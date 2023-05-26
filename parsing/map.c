@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:52:40 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/26 08:42:58 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/26 08:45:28 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char *fill_map_line(char *line, int width)
     char *map_line;
 
     i = 0;
-    map_line = malloc(width);
+    map_line = malloc(sizeof(char) * width + 1);
     while(i < width)
     {
         if (line[i] && line[i] != ' ' && line[i] != '\t')
@@ -92,6 +92,7 @@ char *fill_map_line(char *line, int width)
             map_line[i] = '2';
         i++;
     }
+    map_line[i] = '\0';
     return (map_line);
 }
 
