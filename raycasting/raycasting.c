@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 03:53:58 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/25 11:52:07 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/26 04:12:25 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int has_wall_at(t_data *data, double x, double y)
 	int	map_x;
 	int	map_y;
 
-	if (x < 0 || x > data->parse->map_width * CELL_SIZE || y < 0
-		|| y > data->parse->map_height * CELL_SIZE)
+	if (x < 0 || x >= data->parse->map_width * CELL_SIZE || y < 0
+		|| y >= data->parse->map_height * CELL_SIZE)
 		return (0);
 	map_x = floor(x / CELL_SIZE);
 	map_y = floor(y / CELL_SIZE);

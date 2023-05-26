@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:41:00 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/25 06:54:26 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/26 04:06:06 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void    check_chars(char **map)
         {
             if (map[i][j] != '1' && !ft_isspace(map[i][j]) && map[i][j] != '0'
                && map[i][j] != 'N' && map[i][j] != 'S' && map[i][j] != 'E'
-               && map[i][j] != 'W')
+               && map[i][j] != 'W' && map[i][j] != '2')
                 errors("Invalid character in map");
             j++;
         }
@@ -68,7 +68,7 @@ void    check_borders(t_parse *parse)
     j = 0;
     while (parse->map[0][j])
     {
-        if (parse->map[0][j] != '1' && !ft_isspace(parse->map[0][j]))
+        if (parse->map[0][j] != '1' && parse->map[0][j] != '2')
             errors("Invalid map first line");
         j++;
     }
@@ -76,7 +76,7 @@ void    check_borders(t_parse *parse)
     j = 0;
     while (parse->map[i][j])
     {
-        if (parse->map[i][j] != '1' && !ft_isspace(parse->map[i][j]))
+        if (parse->map[i][j] != '1' && parse->map[0][j] != '2')
             errors("Invalid map last line");
         j++;
     }
