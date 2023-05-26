@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:29:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/26 04:02:01 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/26 04:22:29 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	main_draw(t_data *data)
 		{
 			if (data->parse->map[i][j] == '1')
 				draw_square(data->img, j * CELL_SIZE, i * CELL_SIZE, CELL_SIZE, BLUE);
-			else
+			else if (data->parse->map[i][j] == '0')
 			{
 				draw_square(data->img, j * CELL_SIZE, i * CELL_SIZE, CELL_SIZE, WHITE);
 				// draw_line(data->img, j * CELL_SIZE, i * CELL_SIZE, (j + 1) * CELL_SIZE, i * CELL_SIZE, BLACK);
@@ -74,6 +74,8 @@ void	main_draw(t_data *data)
 				// draw_line(data->img, (j + 1) * CELL_SIZE, i * CELL_SIZE, (j + 1) * CELL_SIZE, (i + 1) * CELL_SIZE, BLACK);
 				// draw_line(data->img, j * CELL_SIZE, (i + 1) * CELL_SIZE, (j + 1) * CELL_SIZE, (i + 1) * CELL_SIZE, BLACK);
 			}
+			else
+				draw_square(data->img, j * CELL_SIZE, i * CELL_SIZE, CELL_SIZE, BLUE);
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:52:40 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/26 04:02:57 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/26 04:23:33 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,5 @@ void    parse_map(t_parse *parse, char **file)
     }
     parse->map[j] = NULL;
     check_map(parse);
-    printf_map(parse);
+    // printf_map(parse);
 }
