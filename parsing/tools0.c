@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 01:20:20 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/26 10:54:42 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/27 10:42:25 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,12 @@ char	*remove_nl(char *line)
 	}
 	new[i] = '\0';
 	return (new);
+}
+
+int min(int a, int b)
+{
+    if (a < b)
+        return (a);
+    else
+        return (b);
 }

@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:52:40 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/26 14:19:19 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/27 13:29:30 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,13 +124,32 @@ void fill_map(char **map, char **file, int i, int width)
     map[k] = NULL;
 }
 
-int min(int a, int b)
+int count_spaces(char **map)
 {
-    if (a < b)
-        return (a);
-    else
-        return (b);
+    int i;
+    int j;
+    int spaces;
+    int res;
+
+    i = 0;
+    spaces = 0;
+    res = 1;
+    while (map[i])
+    {
+        j = 0;
+        while (map[i][j])
+        {
+            if (ft_isspace(map[i][j]))
+                spaces++;
+            j++;
+        }
+        if (res > spaces)
+            res = spaces;
+        i++;
+    }
+    return (spaces);
 }
+
 
 void    parse_map(t_parse *parse, char **file)
 {
@@ -151,5 +170,6 @@ void    parse_map(t_parse *parse, char **file)
     // printf("height: %d width: %d\n", parse->map_height, parse->map_width);
     // printf_map(parse);
     check_map(parse);
+    // correct_map(parse);
 }
 

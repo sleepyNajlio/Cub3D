@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:59 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/26 10:09:33 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/27 10:43:27 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	print_tab(char **tab);
 // tools0
 char	*remove_spc(char *line);
 char	*remove_nl(char *line);
+int 	min(int a, int b);
 
 
 // identifiers
