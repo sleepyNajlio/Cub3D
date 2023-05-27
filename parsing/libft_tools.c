@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:16:10 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/26 11:48:01 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/27 15:10:30 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ char	**ft_split(char *line, char c)
 	i = 0;
 	w = 0;
 	// printf("%d %s\n", word_count(line, c), line);
+	if (word_count(line, c) == 3 && line[ft_strlen(line) - 1] == ',')
+        errors("invalid Color");
 	tab = (char **)malloc(sizeof(char *) * (word_count(line, c) + 1));
 	while (line[i])
 	{
@@ -103,8 +105,8 @@ char	**ft_split(char *line, char c)
 			j++;
 			i++;
 		}
-		if (j > 0)
-			tab[w++] = ft_substr(line, i - j, j);
+		// if (j > 0)
+		tab[w++] = remove_spc(ft_substr(line, i - j, j));
 		if (line[i])
 			i++;
 	}

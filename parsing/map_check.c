@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 20:41:00 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/26 14:16:24 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/27 15:34:53 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,14 +98,15 @@ void    check_zero(t_parse *parse)
         j = 0;
         while (parse->map[i][j])
         {
-            if (parse->map[i][j] == '0')
+            if (parse->map[i][j] == '0' || parse->map[i][j] == 'N'|| parse->map[i][j] == 'S' || parse->map[i][j] == 'E' 
+                || parse->map[i][j] == 'W')
             {
                 if (!parse->map[i][j - 1] || !parse->map[i][j + 1] || !parse->map[i - 1][j] || !parse->map[i + 1][j])
-                    errors("Invalid map (zero)11");
+                    errors("Invalid map");
                 if (parse->map[i][j - 1] == '2' || parse->map[i][j + 1] == '2' || parse->map[i - 1][j] == '2' || parse->map[i + 1][j] == '2')
-                    errors("Invalid map (zero)22");
+                    errors("Invalid map");
                 if (ft_isspace(parse->map[i][j - 1]) || ft_isspace(parse->map[i][j + 1]) || ft_isspace(parse->map[i - 1][j]) || ft_isspace(parse->map[i + 1][j]))
-                    errors("Invalid map (zero)33");
+                    errors("Invalid map");
             }
             j++;
         }

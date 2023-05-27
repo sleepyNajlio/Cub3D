@@ -16,6 +16,7 @@
 		"unordered_map": "c",
 		"utility": "c",
 		"vector": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"raycasting.h": "c"
 	}
 }

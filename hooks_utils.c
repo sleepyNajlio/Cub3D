@@ -6,11 +6,11 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:29:17 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/26 11:16:34 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/27 14:33:18 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raycasting.h"
+#include "cub3d.h"
 
 void	rot_left(t_data *data)
 {
@@ -40,20 +40,4 @@ int	draw_again(t_data *data)
 	mlx_destroy_image(data->mlx, data->img->img);
 	main_draw(data);
 	return (1);
-}
-
-int	check_wall(t_parse *parse, double x, double y)
-{
-	int	x1;
-	int	y1;
-	int	x2;
-	int	y2;
-
-	x1 = floor((x + (parse->cell_size / 3)) / parse->cell_size);
-	y1 = floor((y + (parse->cell_size / 3)) / parse->cell_size);
-	x2 = floor((x - (parse->cell_size / 3)) / parse->cell_size);
-	y2 = floor((y - (parse->cell_size / 3)) / parse->cell_size);
-	if (parse->map[y1][x1] == '1' || parse->map[y2][x2] == '1')
-		return (1);
-	return (0);
 }

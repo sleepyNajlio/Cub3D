@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:05:49 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/27 10:15:00 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/27 15:37:56 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <limits.h>
 
 # define CELL_SIZE 64
-# define P_SPEED 10
+# define P_SPEED 3
 # define P_ROT_SPEED 0.1
 # define MINIMAP_SCALE_FACTOR 1
 
@@ -52,6 +52,12 @@ typedef struct s_player
 	double	x;
 	double	y;
 	double	angle;
+	int		up;
+	int		down;
+	int		left;
+	int		right;
+	int		r_left;
+	int		r_right;
 }	t_player;
 
 typedef struct s_ray
@@ -98,6 +104,7 @@ typedef struct s_data
 	int			win_h;
 }	t_data;
 
+#include "raycasting/raycasting.h"
 // draw_2d
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	draw_square(t_img *img, double x, double y, double size, int color);
@@ -108,6 +115,9 @@ void	draw_circle(t_img *img, int x, int y, int radius, int color);
 void	render3dProjection(t_data *data, int i);
 
 // hooks
-int		key_hook(int keycode, t_data *data);
+int	key_released(int keycode, t_data *data);
+int	key_pressed(int keycode, t_data *data);
+void	move(t_data *data);
+
 
 #endif

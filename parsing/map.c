@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:52:40 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/27 13:29:30 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/27 15:37:32 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,17 @@ char *fill_map_line(char *line, int width)
     return (map_line);
 }
 
+
+void check_rest(char **file, int i)
+{
+    while (file[i])
+    {
+        if (file[i][0] != '\0')
+            errors("Invalid map");
+        i++;
+    }
+}
+
 void fill_map(char **map, char **file, int i, int width)
 {
     int j;
@@ -122,6 +133,7 @@ void fill_map(char **map, char **file, int i, int width)
         i++;
     }
     map[k] = NULL;
+    check_rest(file, i);
 }
 
 int count_spaces(char **map)

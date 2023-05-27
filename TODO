@@ -1,0 +1,8 @@
+Tabs in map
+comma
+
+if (has_wall_at(data, new_x, data->player->y) == 0)
+		data->player->x = new_x;
+	if (has_wall_at(data, data->player->x, new_y) == 0)
+		data->player->y = new_y;
+	draw_again(data);

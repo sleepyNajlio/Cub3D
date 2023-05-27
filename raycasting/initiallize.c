@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:45:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/27 10:10:02 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/27 14:13:09 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ void	init_player(t_player *player, t_parse *parse)
 		player->angle = 0;
 	else if (parse->player_dir == 'W')
 		player->angle = M_PI;
+	player->down = 0;
+	player->up = 0;
+	player->right = 0;
+	player->left = 0;
+	player->r_right = 0;
+	player->r_left = 0;
 }
 
 void	init_rays(t_data *data)

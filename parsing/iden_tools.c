@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iden_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 11:37:43 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/26 07:12:45 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/27 15:12:53 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ char **check_color(char *line)
     color = ft_split(line, ',');
     while (color[i])
     {
+        // printf("%s\n", color[i]);
         if (ft_isdigit(color[i]) == 0 || ft_strlen(color[i]) > 3 || ft_strlen(color[i]) < 1
             || ft_atoi(color[i]) > 255 || ft_atoi(color[i]) < 0)
             errors("invalid Color");
         i++;
     }
+    
     if (i != 3)
         errors("invalid Color");
     free(line);
