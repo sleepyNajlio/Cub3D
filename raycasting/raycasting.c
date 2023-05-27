@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 03:53:58 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/26 04:12:25 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/27 01:01:03 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int has_wall_at(t_data *data, double x, double y)
 	int	map_x;
 	int	map_y;
 
-	if (x < 0 || x >= data->parse->map_width * CELL_SIZE || y < 0
-		|| y >= data->parse->map_height * CELL_SIZE)
+	if (x < 0 || x >= data->win_w || y < 0
+		|| y >= data->win_h)
 		return (0);
-	map_x = floor(x / CELL_SIZE);
-	map_y = floor(y / CELL_SIZE);
+	map_x = floor(x / data->parse->cell_size);
+	map_y = floor(y / data->parse->cell_size);
 	if (data->parse->map[map_y][map_x] == '1')
 		return(1);
 	else
@@ -42,18 +42,18 @@ void	hor_rays(t_data *data, int i)
 	data->rays[i].isfacingright = (data->rays[i].ray_angle < M_PI_2 || data->rays[i].ray_angle > (M_PI * 1.5));
 	data->rays[i].isfacingleft = !(data->rays[i].isfacingright);	
 
-	data->rays[i].yintercept = floor(data->player->y / CELL_SIZE) * CELL_SIZE;
+	data->rays[i].yintercept = floor(data->player->y / data->parse->cell_size) * data->parse->cell_size;
 	if (data->rays[i].isfacingdown)
-		data->rays[i].yintercept += CELL_SIZE;
+		data->rays[i].yintercept += data->parse->cell_size;
 
 	data->rays[i].xintercept = data->player->x + (data->rays[i].yintercept - data->player->y) / tan(data->rays[i].ray_angle);
 
 
-	data->rays[i].ystep = CELL_SIZE;
+	data->rays[i].ystep = data->parse->cell_size;
 	if (data->rays[i].isfacingup)
 		data->rays[i].ystep *= -1;
 
-	data->rays[i].xstep = CELL_SIZE / tan(data->rays[i].ray_angle);
+	data->rays[i].xstep = data->parse->cell_size / tan(data->rays[i].ray_angle);
 	if (data->rays[i].isfacingleft && data->rays[i].xstep > 0)
 		data->rays[i].xstep *= -1;
 	if (data->rays[i].isfacingright && data->rays[i].xstep < 0)
@@ -64,8 +64,8 @@ void	hor_rays(t_data *data, int i)
 	data->rays[i].nxt_horz_x_inter = data->rays[i].xintercept;
 	data->rays[i].nxt_horz_y_inter = data->rays[i].yintercept;
 	
-	while (data->rays[i].nxt_horz_x_inter >= 0 && data->rays[i].nxt_horz_x_inter <= (data->parse->map_width) * CELL_SIZE
-		&& data->rays[i].nxt_horz_y_inter >= 0 && data->rays[i].nxt_horz_y_inter <= (data->parse->map_height)* CELL_SIZE)
+	while (data->rays[i].nxt_horz_x_inter >= 0 && data->rays[i].nxt_horz_x_inter <= data->win_w
+		&& data->rays[i].nxt_horz_y_inter >= 0 && data->rays[i].nxt_horz_y_inter <= data->win_h)
 	{
 		data->rays[i].found_h_wall_hit = has_wall_at(data,\
 			data->rays[i].nxt_horz_x_inter, (data->rays[i].nxt_horz_y_inter - data->rays[i].isfacingup));
@@ -99,18 +99,18 @@ void	ver_rays(t_data *data, int i)
 	data->rays[i].isfacingright = (data->rays[i].ray_angle < M_PI_2 || data->rays[i].ray_angle > (M_PI * 1.5));
 	data->rays[i].isfacingleft = !(data->rays[i].isfacingright);	
 
-	data->rays[i].xintercept = floor(data->player->x / CELL_SIZE) * CELL_SIZE;
+	data->rays[i].xintercept = floor(data->player->x / data->parse->cell_size) * data->parse->cell_size;
 	if (data->rays[i].isfacingright)
-		data->rays[i].xintercept += CELL_SIZE;
+		data->rays[i].xintercept += data->parse->cell_size;
 
 	data->rays[i].yintercept = data->player->y + (data->rays[i].xintercept - data->player->x) * tan(data->rays[i].ray_angle);
 
 
-	data->rays[i].xstep = CELL_SIZE;
+	data->rays[i].xstep = data->parse->cell_size;
 	if (data->rays[i].isfacingleft)
 		data->rays[i].xstep *= -1;
 
-	data->rays[i].ystep = CELL_SIZE * tan(data->rays[i].ray_angle);
+	data->rays[i].ystep = data->parse->cell_size * tan(data->rays[i].ray_angle);
 	if (data->rays[i].isfacingup && data->rays[i].ystep > 0)
 		data->rays[i].ystep *= -1;
 	if (data->rays[i].isfacingdown && data->rays[i].ystep < 0)
@@ -121,8 +121,8 @@ void	ver_rays(t_data *data, int i)
 	data->rays[i].nxt_ver_x_inter = data->rays[i].xintercept;
 	data->rays[i].nxt_ver_y_inter = data->rays[i].yintercept;
 	
-	while (data->rays[i].nxt_ver_x_inter >= 0 && data->rays[i].nxt_ver_x_inter <= (data->parse->map_width) * CELL_SIZE
-		&& data->rays[i].nxt_ver_y_inter >= 0 && data->rays[i].nxt_ver_y_inter <= (data->parse->map_height)* CELL_SIZE)
+	while (data->rays[i].nxt_ver_x_inter >= 0 && data->rays[i].nxt_ver_x_inter <= data->win_w
+		&& data->rays[i].nxt_ver_y_inter >= 0 && data->rays[i].nxt_ver_y_inter <= data->win_h)
 	{
 		data->rays[i].found_v_wall_hit = has_wall_at(data,\
 			(data->rays[i].nxt_ver_x_inter - data->rays[i].isfacingleft), data->rays[i].nxt_ver_y_inter);
