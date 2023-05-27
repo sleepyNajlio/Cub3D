@@ -6,7 +6,7 @@
 /*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:05:49 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/26 23:05:24 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/27 03:21:36 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define CELL_SIZE 64
 # define P_SPEED 10
 # define P_ROT_SPEED 0.1
+# define MINIMAP_SCALE_FACTOR 1
 
 # define BLUE 0x0000FF
 # define RED 0xFF0000
@@ -80,9 +81,9 @@ typedef struct s_ray
 	double	wall_x;
 	double	wall_y;
 	int		was_hit_vertical;
-	
-
-	
+	double	corr_wall_dis;
+	double	project_plan_dis;
+	double	wall_strip_height;
 }	t_ray;
 
 typedef struct s_data
@@ -99,11 +100,12 @@ typedef struct s_data
 
 // draw_2d
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
-void	draw_square(t_img *img, int x, int y, int size, int color);
+void	draw_square(t_img *img, double x, double y, double size, int color);
 void	main_draw(t_data *data);
 void	game_init(t_data *data);
 void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color);
 void	draw_circle(t_img *img, int x, int y, int radius, int color);
+void	render3dProjection(t_data *data, int i);
 
 // hooks
 int		key_hook(int keycode, t_data *data);

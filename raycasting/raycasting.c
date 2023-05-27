@@ -6,7 +6,7 @@
 /*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 03:53:58 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/27 01:01:03 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/27 02:07:37 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,6 +187,7 @@ void	raycasting(t_data *data)
 		ray_angle = standardized_range(ray_angle);
 		data->rays[i].ray_angle = ray_angle;
 		cast_ray(data, i);
+		render3dProjection(data, i);
 		ray_angle += data->rays->fov_angle / data->rays->num_rays;
 		i++;
 	}

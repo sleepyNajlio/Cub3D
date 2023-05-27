@@ -8,7 +8,7 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void draw_square(t_img *img, int x, int y, int size, int color)
+void draw_square(t_img *img, double x, double y, double size, int color)
 {
     int i;
     int j;
