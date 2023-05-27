@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initiallize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:45:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/26 23:31:02 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/27 10:10:02 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	game_init(t_data *data)
 	data->img = (t_img *)malloc(sizeof(t_img));
 	data->player = (t_player *)malloc(sizeof(t_player));
 	data->mlx = mlx_init();
-	data->win = mlx_new_window(data->mlx, data->win_w, data->win_h, "cub3d");
+	data->win = mlx_new_window(data->mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3d");
 	init_player(data->player, data->parse);
 	init_rays(data);
 	printf("%d %d\n", data->parse->map_width,data->parse->map_height);
