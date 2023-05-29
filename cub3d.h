@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:05:49 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/29 21:48:05 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/27 15:37:56 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define CELL_SIZE 64
 # define P_SPEED 3
 # define P_ROT_SPEED 0.1
-# define MINIMAP_SCALE_FACTOR 0.3
+# define MINIMAP_SCALE_FACTOR 1
 
 # define BLUE 0x0000FF
 # define RED 0xFF0000
@@ -113,7 +113,6 @@ void	game_init(t_data *data);
 void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color);
 void	draw_circle(t_img *img, int x, int y, int radius, int color);
 void	render3dProjection(t_data *data, int i);
-void draw_rectangle(t_img *img, double x, double y, double width, double height, int color);
 
 // hooks
 int	key_released(int keycode, t_data *data);
