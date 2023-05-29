@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:29:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/27 10:10:17 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/29 21:42:39 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,9 @@ void main_draw(t_data *data)
 		i++;
 	}
 
-	// raycasting(data);
+	raycasting(data);
 
-	// draw_ray(data);
+	draw_ray(data);
 	draw_player(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img->img, 0, 0);
 }

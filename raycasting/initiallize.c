@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initiallize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:45:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/27 14:13:09 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/29 22:00:46 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void	init_rays(t_data *data)
 	int	i;
 
 	i = 0;
-	data->rays = malloc(data->win_w * sizeof(t_ray));
-	while (i < data->parse->map_width)
+	data->rays = malloc(SCREEN_WIDTH * sizeof(t_ray));
+	while (i < SCREEN_WIDTH)
 	{
 		data->rays[i].fov_angle = 60 * (M_PI / 180);
-		data->rays[i].num_rays = data->win_w;
+		data->rays[i].num_rays = SCREEN_WIDTH;
 		data->rays[i].ray_angle = 0;
 		data->rays[i].distance = 0;
 		i++;

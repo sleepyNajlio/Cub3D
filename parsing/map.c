@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:52:40 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/27 15:37:32 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/29 21:44:26 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ void    parse_map(t_parse *parse, char **file)
         errors("map Incomplete");
     parse->map_height = map_height(file, i);
     parse->map_width = map_width(file, i);
-    parse->cell_size = min(SCREEN_HEIGHT / parse->map_height, SCREEN_WIDTH / parse->map_width);
+    parse->cell_size = 64;
     parse->map = (char **)malloc(sizeof(char *) * parse->map_height + 1);
     fill_map(parse->map, file, i, parse->map_width);
     // printf("height: %d width: %d\n", parse->map_height, parse->map_width);
