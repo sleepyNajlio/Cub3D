@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:29:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/29 19:52:54 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/30 16:05:10 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,10 @@ void main_draw(t_data *data)
 	data->img->addr = mlx_get_data_addr(data->img->img,
 										&data->img->bits_per_pixel, &data->img->line_length,
 										&data->img->endian);
+	
+
+	raycasting(data);
+
 	while (data->parse->map[i])
 	{
 		j = 0;
@@ -68,28 +72,26 @@ void main_draw(t_data *data)
 		{
 			if (data->parse->map[i][j] == '1')
 				draw_square(data->img, j * cell_size * MINIMAP_SCALE_FACTOR, i * cell_size * MINIMAP_SCALE_FACTOR, cell_size * MINIMAP_SCALE_FACTOR, BLUE);
-			else if (data->parse->map[i][j] == '0')
-			{
-				// draw_square(data->img, j * cell_size, i * cell_size, cell_size, WHITE);
-				// draw_line(data->img, j * cell_size, i * cell_size, (j + 1) * cell_size, i * cell_size, BLACK);
-				// draw_line(data->img, j * cell_size, i * cell_size, j * cell_size, (i + 1) * cell_size, BLACK);
-				// draw_line(data->img, (j + 1) * cell_size, i * cell_size, (j + 1) * cell_size, (i + 1) * cell_size, BLACK);
-				// draw_line(data->img, j * cell_size, (i + 1) * cell_size, (j + 1) * cell_size, (i + 1) * cell_size, BLACK);
+			// else if (data->parse->map[i][j] == '0')
+			// {
+			// 	// draw_square(data->img, j * cell_size, i * cell_size, cell_size, WHITE);
+			// 	// draw_line(data->img, j * cell_size, i * cell_size, (j + 1) * cell_size, i * cell_size, BLACK);
+			// 	// draw_line(data->img, j * cell_size, i * cell_size, j * cell_size, (i + 1) * cell_size, BLACK);
+			// 	// draw_line(data->img, (j + 1) * cell_size, i * cell_size, (j + 1) * cell_size, (i + 1) * cell_size, BLACK);
+			// 	// draw_line(data->img, j * cell_size, (i + 1) * cell_size, (j + 1) * cell_size, (i + 1) * cell_size, BLACK);
 
-				draw_square(data->img, (j * cell_size) * MINIMAP_SCALE_FACTOR, (i * cell_size) * MINIMAP_SCALE_FACTOR, cell_size * MINIMAP_SCALE_FACTOR, WHITE);
-				draw_line(data->img, (j * cell_size) * MINIMAP_SCALE_FACTOR,      (i * cell_size) * MINIMAP_SCALE_FACTOR,        (j + 1) * cell_size* MINIMAP_SCALE_FACTOR, i * cell_size* MINIMAP_SCALE_FACTOR, BLACK);
-				draw_line(data->img, (j * cell_size) * MINIMAP_SCALE_FACTOR,      (i * cell_size) * MINIMAP_SCALE_FACTOR,       j * cell_size* MINIMAP_SCALE_FACTOR, (i + 1) * cell_size* MINIMAP_SCALE_FACTOR, BLACK);
-				draw_line(data->img, (j + 1) * cell_size * MINIMAP_SCALE_FACTOR,   (i * cell_size) * MINIMAP_SCALE_FACTOR,      (j + 1) * cell_size* MINIMAP_SCALE_FACTOR, (i + 1) * cell_size* MINIMAP_SCALE_FACTOR, BLACK);
-				draw_line(data->img, j * cell_size * MINIMAP_SCALE_FACTOR,        (i + 1) * cell_size * MINIMAP_SCALE_FACTOR,  (j + 1) * cell_size* MINIMAP_SCALE_FACTOR, (i + 1) * cell_size* MINIMAP_SCALE_FACTOR, BLACK);
-			}
-			else
-				draw_square(data->img, j * cell_size * MINIMAP_SCALE_FACTOR, i * cell_size * MINIMAP_SCALE_FACTOR, cell_size * MINIMAP_SCALE_FACTOR, GRAY);
+			// 	// draw_square(data->img, (j * cell_size) * MINIMAP_SCALE_FACTOR, (i * cell_size) * MINIMAP_SCALE_FACTOR, cell_size * MINIMAP_SCALE_FACTOR, WHITE);
+			// 	// draw_line(data->img, (j * cell_size) * MINIMAP_SCALE_FACTOR,      (i * cell_size) * MINIMAP_SCALE_FACTOR,        (j + 1) * cell_size* MINIMAP_SCALE_FACTOR, i * cell_size* MINIMAP_SCALE_FACTOR, BLACK);
+			// 	// draw_line(data->img, (j * cell_size) * MINIMAP_SCALE_FACTOR,      (i * cell_size) * MINIMAP_SCALE_FACTOR,       j * cell_size* MINIMAP_SCALE_FACTOR, (i + 1) * cell_size* MINIMAP_SCALE_FACTOR, BLACK);
+			// 	// draw_line(data->img, (j + 1) * cell_size * MINIMAP_SCALE_FACTOR,   (i * cell_size) * MINIMAP_SCALE_FACTOR,      (j + 1) * cell_size* MINIMAP_SCALE_FACTOR, (i + 1) * cell_size* MINIMAP_SCALE_FACTOR, BLACK);
+			// 	// draw_line(data->img, j * cell_size * MINIMAP_SCALE_FACTOR,        (i + 1) * cell_size * MINIMAP_SCALE_FACTOR,  (j + 1) * cell_size* MINIMAP_SCALE_FACTOR, (i + 1) * cell_size* MINIMAP_SCALE_FACTOR, BLACK);
+			// }
+			// else
+			// 	draw_square(data->img, j * cell_size * MINIMAP_SCALE_FACTOR, i * cell_size * MINIMAP_SCALE_FACTOR, cell_size * MINIMAP_SCALE_FACTOR, GRAY);
 			j++;
 		}
 		i++;
 	}
-
-	raycasting(data);
 
 	draw_ray(data);
 	draw_player(data);

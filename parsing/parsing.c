@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:31:02 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/29 21:58:49 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/05/30 15:51:03 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	init_parse(t_parse *parse)
 	parse->map = NULL;
 	parse->map_height = 0;
 	parse->map_width = 0;
+	parse->player = 0;
 }
 	
 t_parse	*parsing(char *path)

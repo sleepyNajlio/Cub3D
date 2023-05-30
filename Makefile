@@ -8,7 +8,7 @@ SRC			= main.c parsing/errors.c parsing/libft_tools.c parsing/get_next_line.c pa
 			parsing/ft_free.c draw_2d.c raycasting/initiallize.c raycasting/draw.c hooks.c hooks_utils.c\
 			raycasting/raycasting.c raycasting/hor_rays.c raycasting/render_3d.c
 
-FLAGS		= -Wall -Werror -Wextra -g 
+FLAGS		= -Wall -Werror -Wextra -g -fsanitize=address
 
 FRAMEWORK	= -framework OpenGL -framework AppKit
 

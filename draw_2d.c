@@ -26,6 +26,24 @@ void draw_square(t_img *img, double x, double y, double size, int color)
     }
 }
 
+void draw_rectangle(t_img *img, double x, double y, double width, double height, int color)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while (i < height)
+    {
+        j = 0;
+        while (j < width)
+        {
+            my_mlx_pixel_put(img, x + j, y + i, color);
+            j++;
+        }
+        i++;
+    }
+}
+
 void	draw_circle(t_img *img, int x, int y, int radius, int color)
 {
 	int i;

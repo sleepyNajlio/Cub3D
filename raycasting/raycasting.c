@@ -6,7 +6,7 @@
 /*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 03:53:58 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/27 02:07:37 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/05/30 15:24:49 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int has_wall_at(t_data *data, double x, double y)
 		return(1);
 	else
 		return(0);
+//cubscene->map[j]
 }
 
 void	hor_rays(t_data *data, int i)
