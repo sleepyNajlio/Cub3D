@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include "get_next_line.h"
 
-# define SCREEN_WIDTH 1280
+# define SCREEN_WIDTH 1080
 # define SCREEN_HEIGHT 720
 
 

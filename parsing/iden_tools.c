@@ -49,13 +49,11 @@ char **check_color(char *line)
 
 void	get_color(char *line, t_parse *parse)
 {
-	int i;
 	char **color;
 	int red;
 	int green;
 	int blue;
 	
-	i = 0;
 	color = check_color(line + 1);
 	red = ft_atoi(color[0]);
 	green = ft_atoi(color[1]);

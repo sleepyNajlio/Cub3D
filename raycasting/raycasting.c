@@ -17,11 +17,11 @@ int has_wall_at(t_data *data, double x, double y)
 	int	map_x;
 	int	map_y;
 
-	if (x < 0 || x >= data->win_w || y < 0
-		|| y >= data->win_h)
-		return (0);
 	map_x = floor(x / data->parse->cell_size);
 	map_y = floor(y / data->parse->cell_size);
+	if (map_x < 0 || map_x >= ft_strlen(data->parse->map[map_y]) || map_y < 0
+		|| map_y >= data->parse->map_height)
+		return (0);
 	if (data->parse->map[map_y][map_x] == '1')
 		return(1);
 	else
@@ -143,7 +143,7 @@ void	ver_rays(t_data *data, int i)
 	}
 }
 
-double dist_ray(x1, y1, x2, y2) {
+double dist_ray(double x1, double y1, double x2, double y2) {
     return ( sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)) );
 }
 

@@ -166,9 +166,7 @@ int count_spaces(char **map)
 void    parse_map(t_parse *parse, char **file)
 {
     int i;
-    int j;
 
-    j = 0;
     i = 0;
     while (!is_map_el(file[i]))
         i++;
