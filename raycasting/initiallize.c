@@ -68,6 +68,8 @@ void	init_rays(t_data *data)
 		data->rays[i].corr_wall_dis = 0;
 		data->rays[i].project_plan_dis = 0;
 		data->rays[i].wall_strip_height = 0;
+		data->rays[i].start = 0;
+		data->rays[i].end = 0;
 		i++;
 	}
 }
@@ -80,6 +82,13 @@ void	game_init(t_data *data)
 	data->player = (t_player *)malloc(sizeof(t_player));
 	data->mlx = mlx_init();
 	data->win = mlx_new_window(data->mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3d");
+
+	data->no_tx = mlx_xpm_file_to_image(data->mlx, data->parse->no, &data->tx_w, &data->tx_h);
+	data->ea_tx = mlx_xpm_file_to_image(data->mlx, data->parse->ea, &data->tx_w, &data->tx_h);
+	data->so_tx = mlx_xpm_file_to_image(data->mlx, data->parse->so, &data->tx_w, &data->tx_h);
+	data->we_tx = mlx_xpm_file_to_image(data->mlx, data->parse->we, &data->tx_w, &data->tx_h);
+	if (!data->no_tx || !data->ea_tx || !data->so_tx || !data->we_tx)
+		exit(write(2, "Error xpm\n", 11));
 	init_player(data->player, data->parse);
 	init_rays(data);
 	printf("%d %d\n", data->parse->map_width,data->parse->map_height);

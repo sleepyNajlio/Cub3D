@@ -1,9 +1,9 @@
 
 
-NO ./map_stuff/teapot.xpm
-SO ./map_stuff/teapot.xpm
-WE ./map_stuff/teapot.xpm      
-EA ./map_stuff/teapot.xpm
+NO ./map_stuff/no.xpm
+SO ./map_stuff/so.xpm
+WE ./map_stuff/we.xpm      
+EA ./map_stuff/ea.xpm
 
 F 128,128,128
 C 0,0,75

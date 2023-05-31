@@ -90,6 +90,9 @@ typedef struct s_ray
 	double	corr_wall_dis;
 	double	project_plan_dis;
 	double	wall_strip_height;
+	int		start;
+	int		end;
+
 }	t_ray;
 
 typedef struct s_data
@@ -102,6 +105,12 @@ typedef struct s_data
 	t_ray		*rays;
 	int			win_w;
 	int			win_h;
+	void		*no_tx;
+	void		*so_tx;
+	void		*we_tx;
+	void		*ea_tx;
+	int			tx_w;
+	int			tx_h;
 }	t_data;
 
 #include "raycasting/raycasting.h"
