@@ -57,7 +57,11 @@ void main_draw(t_data *data)
 										&data->img->endian);
 	
 
-	int ii = 0;
+	
+
+
+
+int ii = 0;
 	while (ii < SCREEN_HEIGHT / 2)
 	{
 		int j = 0;
@@ -68,6 +72,7 @@ void main_draw(t_data *data)
 		}
 		ii++;
 	}
+
 	ii = SCREEN_HEIGHT / 2;
 	while (ii < SCREEN_HEIGHT)
 	{
@@ -80,8 +85,11 @@ void main_draw(t_data *data)
 		ii++;
 	}
 
-
 	raycasting(data);
+
+
+
+
 
 	while (data->parse->map[i])
 	{

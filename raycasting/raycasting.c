@@ -19,7 +19,7 @@ int has_wall_at(t_data *data, double x, double y)
 
 	map_x = floor(x / data->parse->cell_size);
 	map_y = floor(y / data->parse->cell_size);
-	if (map_x < 0 || map_x >= ft_strlen(data->parse->map[map_y]) || map_y < 0
+	if (map_x < 0 || map_x >=  data->parse->map_width || map_y < 0
 		|| map_y >= data->parse->map_height)
 		return (0);
 	if (data->parse->map[map_y][map_x] == '1')
