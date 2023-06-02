@@ -6,7 +6,7 @@
 /*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:45:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/30 14:18:42 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/06/02 18:32:47 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,26 @@ void	init_rays(t_data *data)
 	}
 }
 
+void	xpm_to_img(t_data *data, t_text *txt, char *path)
+{
+	txt->img = mlx_xpm_file_to_image(data->mlx, path, &txt->txt_w, &txt->txt_h);
+	if (!txt->img)
+	{
+		write(2, "Error!\nAccess to texture denied!\n", 33);
+		exit(1);
+	}
+	txt->addr = mlx_get_data_addr(txt->img,
+			&txt->bits_per_pixel, &txt->line_length, &txt->endian);
+}
+
+void	init_textures(t_data	*data)
+{
+	xpm_to_img(data, &data->text[0], data->parse->no);
+	xpm_to_img(data, &data->text[1], data->parse->so);
+	xpm_to_img(data, &data->text[2], data->parse->ea);
+	xpm_to_img(data, &data->text[3], data->parse->we);
+}
+
 void	game_init(t_data *data)
 {
 	data->win_w = data->parse->map_width * data->parse->cell_size;
@@ -83,14 +103,9 @@ void	game_init(t_data *data)
 	data->mlx = mlx_init();
 	data->win = mlx_new_window(data->mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3d");
 
-	data->no_tx = mlx_xpm_file_to_image(data->mlx, data->parse->no, &data->tx_w, &data->tx_h);
-	data->ea_tx = mlx_xpm_file_to_image(data->mlx, data->parse->ea, &data->tx_w, &data->tx_h);
-	data->so_tx = mlx_xpm_file_to_image(data->mlx, data->parse->so, &data->tx_w, &data->tx_h);
-	data->we_tx = mlx_xpm_file_to_image(data->mlx, data->parse->we, &data->tx_w, &data->tx_h);
-	if (!data->no_tx || !data->ea_tx || !data->so_tx || !data->we_tx)
-		exit(write(2, "Error xpm\n", 11));
 	init_player(data->player, data->parse);
 	init_rays(data);
+	init_textures(data);
 	printf("%d %d\n", data->parse->map_width,data->parse->map_height);
 	main_draw(data);
 }

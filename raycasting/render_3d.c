@@ -25,15 +25,35 @@ void	my_get_data_addr(t_data *data, int i)
 	}
 }
 
-unsigned int	my_mlx_texture(t_data *d, int x, int y, int i)
+
+
+
+int	tex_id(t_data *data, int i)
+{
+	
+	if (!data->rays[i].was_hit_vertical)
+	{
+		if (data->rays[i].isfacingup)
+			return (1);
+		else
+			return (0);
+	}
+	else
+	{
+		if (data->rays[i].isfacingright)
+			return (3);
+		else
+			return (2);
+	}
+}
+
+unsigned int	get_pixel(t_text *texture, int x, int y)
 {
 	char	*dst;
 
-	my_get_data_addr(d, i);
-	dst = d->img->addr + (y * d->img->line_length + x * (d->img->bits_per_pixel / 8));
+	dst = texture->addr + (y * texture->line_length
+			+ x * (texture->bits_per_pixel / 8));
 	return (*(unsigned int *)dst);
-
-
 }
 
 void	render3dProjection(t_data *data, int i)
@@ -51,9 +71,8 @@ void	render3dProjection(t_data *data, int i)
 
 	data->rays[i].end =(SCREEN_HEIGHT/ 2) + (w_h / 2);;
 	if (data->rays[i].end > SCREEN_HEIGHT)
-		data->rays[i].end = SCREEN_HEIGHT ;
+		data->rays[i].end = SCREEN_HEIGHT  -1;
 
-	// draw_line(data->img, i , data->rays[i].start, i, data->rays[i].end, RED);
 	int off_x = 0;
 	int off_y = 0;
 	int y = data->rays[i].start;
@@ -62,42 +81,13 @@ void	render3dProjection(t_data *data, int i)
 	else
 		off_x = (int)data->rays[i].wall_x % data->parse->cell_size;
 
+
+	int id = tex_id(data, i);
 	while(y < data->rays[i].end)
 	{
-		off_y = (y +(w_h / 2) - (SCREEN_HEIGHT / 2)) * ((float)data->parse->cell_size / w_h);
-		my_mlx_pixel_put(data->img, i, y, my_mlx_texture(data, off_x, off_y, i));
+		off_y = (y +((float)w_h / (float)2) - (SCREEN_HEIGHT / 2)) * ((float)data->text[id].txt_h / (float)w_h);
+
+		my_mlx_pixel_put(data->img, i, y, get_pixel(&data->text[id], off_x, off_y));
 		y++;
 	}
-
-
-
-	// if (data->rays[i].ray_angle > M_PI * 1.5)
-	// {
-	// 	if (data->rays[i].was_hit_vertical)
-	// 		draw_line(data->img, i , start, i, end, RED);
-	// 	else
-	// 		draw_line(data->img, i , start, i, end, WHITE);
-	// }
-	// else if (data->rays[i].ray_angle < M_PI_2)
-	// {
-	// 	if (data->rays[i].was_hit_vertical)
-	// 		draw_line(data->img, i , start, i, end, RED);
-	// 	else
-	// 		draw_line(data->img, i , start, i, end, GREEN);
-	// }
-	// else if (data->rays[i].ray_angle < M_PI && data->rays[i].ray_angle > M_PI_2)
-	// {
-	// 	if (data->rays[i].was_hit_vertical)
-	// 		draw_line(data->img, i , start, i, end, BLUE);
-	// 	else
-	// 		draw_line(data->img, i , start, i, end, GREEN);
-	// }
-	// else
-	// {
-	// 	if (data->rays[i].was_hit_vertical)
-	// 		draw_line(data->img, i , start, i, end, BLUE);
-	// 	else
-	// 		draw_line(data->img, i , start, i, end, WHITE);
-	// }
-
 }

@@ -1,8 +1,5 @@
-Tabs in map
-comma
-
-if (has_wall_at(data, new_x, data->player->y) == 0)
-		data->player->x = new_x;
-	if (has_wall_at(data, data->player->x, new_y) == 0)
-		data->player->y = new_y;
-	draw_again(data);
+game->offsety = (y + wallheight * 0.5 - HEIGHT * 0.5)
+			* (game->tex[tex_id].height / wallheight);
+		my_mlx_pixel_put(game, pixel, y, get_pixel(&game->tex[tex_id],
+				game->offsetx, game->offsety));
+		y++;

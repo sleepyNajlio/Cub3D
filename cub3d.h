@@ -6,7 +6,7 @@
 /*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:05:49 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/30 16:05:30 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/06/02 16:51:21 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,17 @@ typedef struct s_ray
 
 }	t_ray;
 
+
+typedef struct s_text
+{
+	void	*img;
+	void	*addr;
+	int		txt_h;
+	int		txt_w;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_text;
 typedef struct s_data
 {
 	void		*mlx;
@@ -103,6 +114,7 @@ typedef struct s_data
 	t_parse		*parse;
 	t_player	*player;
 	t_ray		*rays;
+	t_text		text[4];
 	int			win_w;
 	int			win_h;
 	void		*no_tx;
