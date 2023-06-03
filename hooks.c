@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:54:37 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/29 22:44:06 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/06/03 17:53:48 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	move_left(t_data *data)
 int	key_pressed(int keycode, t_data *data)
 {
 	(void)data;
-	// printf("key pressed: %d\n", keycode);
 	if (keycode == KEY_ESC)
 	{
 		mlx_destroy_image(data->mlx, data->img->img);
@@ -96,7 +95,6 @@ int	key_pressed(int keycode, t_data *data)
 int	key_released(int keycode, t_data *data)
 {
 	(void)data;
-	// printf("key released: %d\n", keycode);
 	if (keycode == KEY_ESC)
 	{
 		mlx_destroy_image(data->mlx, data->img->img);

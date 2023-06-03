@@ -6,15 +6,15 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 04:53:37 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/25 13:47:58 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/03 18:23:29 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-int ft_isdigit(char *str)
+int	ft_isdigit(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -26,19 +26,18 @@ int ft_isdigit(char *str)
 	return (1);
 }
 
-int ft_isspace(char c)
+int	ft_isspace(char c)
 {
-	if (c == '\t' || c == '\n' || c == '\v' ||
-			c == '\f' || c == '\r' || c == ' ')
+	if (c == '\t' || c == '\n' || c == '\v'
+		|| c == '\f' || c == '\r' || c == ' ')
 		return (1);
 	return (0);
 }
-
-int ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
-	int i;
-	int sign;
-	int res;
+	int	i;
+	int	sign;
+	int	res;
 
 	i = 0;
 	sign = 1;

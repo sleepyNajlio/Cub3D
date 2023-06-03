@@ -6,13 +6,13 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 23:47:54 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/04/25 13:47:58 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/03 17:59:59 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
 
-void first_check(int ac, char **av)
+void	first_check(int ac, char **av)
 {
 	if (ac != 2)
 		errors("Invalid number of arguments");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:31:02 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/30 15:51:03 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/06/03 17:56:28 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,29 +33,6 @@ char	**fill_file(int fd)
 	free(line);
 	tab[i] = NULL;
 	return (tab);
-}
-
-void	print_tab(char **tab)
-{
-	int i;
-
-	i = 0;
-	while (tab[i])
-	{
-		printf("%s \n", tab[i]);
-		i++;
-	}
-}
-
-void	print_parse(t_parse *parse)
-{
-	printf("NO: %s!\n", parse->no);
-	printf("SO: %s!\n", parse->so);
-	printf("WE: %s!\n", parse->we);
-	printf("EA: %s!\n", parse->ea);
-	printf("Floor: %d\n", parse->floor);
-	printf("Ceiling: %d\n", parse->ceiling);
-	printf("tex: %d\n", parse->tex);
 }
 
 void	init_parse(t_parse *parse)
@@ -85,12 +62,6 @@ t_parse	*parsing(char *path)
 	file = fill_file(fd);
 	identifiers(parse, file);
 	parse_map(parse, file);
-	// free_tab(file);
-	// print_tab(file);
-	// print_parse(parse);
-	// close(fd);
-	// identifiers(parse);
-	// parse = fill_idens(tab, parse);
 	return (parse);
 }
 	
