@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:47:05 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/27 13:56:45 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/03 17:34:12 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,23 @@ int		draw_again(t_data *data);
 double	standardized_range(double angle);
 int		draw_again(t_data *data);
 void	raycasting(t_data *data);
-void	inc_ray(t_data *data, int i);
-void	stop_inc(t_data *data, int i);
-void	delta_x_y(t_data *data, int i);
-void	x_y_first_inter(t_data *data, int i);
-void	facing_dir(t_data *data, int i);
 int		has_wall_at(t_data *data, double x, double y);
+void	init_textures(t_data	*data);
+void	init_rays(t_data *data);
+void	init_player(t_player *player, t_parse *parse);
+int		has_wall_at(t_data *data, double x, double y);
+double	dist_ray(double x1, double y1, double x2, double y2);
+void	ray_dire(t_data *data, int i);
+void	first_inter_h(t_data *data, int i);
+void	x_y_step_h(t_data *data, int i);
+void	stop_inc(t_data *data, int i);
+void	inc_ray(t_data *data, int i);
+void	inc_ray_v(t_data *data, int i);
+void	stop_inc_v(t_data *data, int i);
+void	x_y_step_v(t_data *data, int i);
+void	first_inter_v(t_data *data, int i);
+void	ray_dir_v(t_data *data, int i);
+void	hor_dis(t_data *data, int i, double h_dis);
+void	ver_dis(t_data *data, int i, double v_dis);
 
 #endif

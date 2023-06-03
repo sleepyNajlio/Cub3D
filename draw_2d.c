@@ -4,8 +4,6 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 
-	// if (x < 0 || x >= SCREEN_WIDTH || y < 0 || y >= SCREEN_HEIGHT)
-	// 	return ;
 	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }
@@ -20,24 +18,6 @@ void draw_square(t_img *img, double x, double y, double size, int color)
     {
         j = 0;
         while (j < size)
-        {
-            my_mlx_pixel_put(img, x + j, y + i, color);
-            j++;
-        }
-        i++;
-    }
-}
-
-void draw_rectangle(t_img *img, double x, double y, double width, double height, int color)
-{
-    int i;
-    int j;
-
-    i = 0;
-    while (i < height)
-    {
-        j = 0;
-        while (j < width)
         {
             my_mlx_pixel_put(img, x + j, y + i, color);
             j++;

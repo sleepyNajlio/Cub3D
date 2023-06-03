@@ -6,13 +6,13 @@
 /*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:05:49 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/02 16:51:21 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/06/03 17:40:23 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
-# include "mlx/mlx.h"
+# include <mlx.h>
 # include "parsing/parse.h"
 # include <limits.h>
 
@@ -133,8 +133,7 @@ void	main_draw(t_data *data);
 void	game_init(t_data *data);
 void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color);
 void	draw_circle(t_img *img, int x, int y, int radius, int color);
-void draw_rectangle(t_img *img, double x, double y, double width, double height, int color);
-void	render3dProjection(t_data *data, int i);
+void	render3dprojection(t_data *data, int i);
 
 // hooks
 int	key_released(int keycode, t_data *data);

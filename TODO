@@ -1,5 +1,0 @@
-game->offsety = (y + wallheight * 0.5 - HEIGHT * 0.5)
-			* (game->tex[tex_id].height / wallheight);
-		my_mlx_pixel_put(game, pixel, y, get_pixel(&game->tex[tex_id],
-				game->offsetx, game->offsety));
-		y++;

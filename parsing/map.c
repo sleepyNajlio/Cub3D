@@ -6,7 +6,7 @@
 /*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:52:40 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/05/30 15:49:17 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/06/03 16:18:15 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ void check_map(t_parse *parse)
     check_borders(parse);
     check_zero(parse);
     check_player(parse);
-    if (parse->cell_size < 0)
-        errors("Map too big");
 }
 
 char *fill_map_line(char *line, int width)
@@ -174,7 +172,6 @@ void    parse_map(t_parse *parse, char **file)
         errors("map Incomplete");
     parse->map_height = map_height(file, i);
     parse->map_width = map_width(file, i);
-    parse->cell_size = 64;
     parse->map = (char **)malloc(sizeof(char *) * (parse->map_height + 1));
     fill_map(parse->map, file, i, parse->map_width);
     // printf("height: %d width: %d\n", parse->map_height, parse->map_width);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:29:17 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/05/27 14:33:18 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/03 17:00:01 by fel-fil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ void	rot_right(t_data *data)
 double	standardized_range(double angle)
 {
 	angle = remainder(angle, 2 * M_PI);
-    if (angle < 0) {
-        angle = (2 * M_PI) + angle;
-    }
-    return angle;
+	if (angle < 0)
+	{
+		angle = (2 * M_PI) + angle;
+	}
+	return (angle);
 }
 
 int	draw_again(t_data *data)
