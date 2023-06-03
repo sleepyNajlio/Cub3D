@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:29:17 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/06/03 17:00:01 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/06/03 21:24:54 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,20 @@ int	draw_again(t_data *data)
 	mlx_destroy_image(data->mlx, data->img->img);
 	main_draw(data);
 	return (1);
+}
+
+void	move(t_data *data)
+{
+	if (data->player->up)
+		move_up(data);
+	if (data->player->down)
+		move_down(data);
+	if (data->player->left)
+		move_left(data);
+	if (data->player->right)
+		move_right(data);
+	if (data->player->r_left)
+		data->player->angle -= P_ROT_SPEED;
+	if (data->player->r_right)
+		data->player->angle += P_ROT_SPEED;
 }

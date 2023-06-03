@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 11:37:43 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/03 18:16:44 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/03 20:31:54 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ char	**check_color(char *line)
 	color = ft_split(line, ',');
 	while (color[i])
 	{
-		if (ft_isdigit(color[i]) == 0 || ft_strlen(color[i]) > 3 || ft_strlen(color[i]) < 1
-			|| ft_atoi(color[i]) > 255 || ft_atoi(color[i]) < 0)
+		if (ft_isdigit(color[i]) == 0 || ft_strlen(color[i]) > 3 \
+		|| ft_strlen(color[i]) < 1 || ft_atoi(color[i]) > 255 \
+		|| ft_atoi(color[i]) < 0)
 			errors("invalid Color");
 		i++;
 	}

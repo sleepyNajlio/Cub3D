@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:05:49 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/03 17:40:23 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/06/03 21:58:49 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ typedef struct s_ray
 
 }	t_ray;
 
-
 typedef struct s_text
 {
 	void	*img;
@@ -128,17 +127,20 @@ typedef struct s_data
 #include "raycasting/raycasting.h"
 // draw_2d
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
-void	draw_square(t_img *img, double x, double y, double size, int color);
+void	draw_square(t_img *img, double x, double y, int color);
 void	main_draw(t_data *data);
 void	game_init(t_data *data);
 void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color);
-void	draw_circle(t_img *img, int x, int y, int radius, int color);
+void	draw_circle(t_img *img, int x, int y, int color);
 void	render3dprojection(t_data *data, int i);
 
 // hooks
-int	key_released(int keycode, t_data *data);
-int	key_pressed(int keycode, t_data *data);
+int		key_released(int keycode, t_data *data);
+int		key_pressed(int keycode, t_data *data);
 void	move(t_data *data);
-
+void	move_down(t_data *data);
+void	move_up(t_data *data);
+void	move_right(t_data *data);
+void	move_left(t_data *data);
 
 #endif
