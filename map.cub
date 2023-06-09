@@ -1,9 +1,9 @@
 
 
-NO ./map_stuff/no.xpm
-SO ./map_stuff/so.xpm
-WE ./map_stuff/we.xpm      
-EA ./map_stuff/ea.xpm
+NO ./map_stuff/bamboo.xpm
+SO ./map_stuff/wood.xpm
+WE ./map_stuff/brick1.xpm      
+EA ./map_stuff/brick2.xpm
 
 F 128 ,128 , 128
 C 0,0,75
