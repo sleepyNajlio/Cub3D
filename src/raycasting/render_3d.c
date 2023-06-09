@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render_3d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 17:35:25 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/06/03 17:45:08 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/06/09 13:31:30 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raycasting.h"
+#include "../cub3d.h"
 
 int	tex_id(t_data *data, int i)
 {

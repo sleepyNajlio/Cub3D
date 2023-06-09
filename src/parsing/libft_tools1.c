@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 04:53:37 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/03 18:23:29 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/09 13:36:48 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	ft_isspace(char c)
 		return (1);
 	return (0);
 }
+
 int	ft_atoi(char *str)
 {
 	int	i;

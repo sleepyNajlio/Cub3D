@@ -6,11 +6,11 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:29:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/06/03 22:15:17 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/09 13:36:06 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raycasting.h"
+#include "../cub3d.h"
 
 void	draw_player(t_data *data)
 {
@@ -22,10 +22,6 @@ void	draw_player(t_data *data)
 	x = data->player->x * MINIMAP_SCALE_FACTOR;
 	y = data->player->y * MINIMAP_SCALE_FACTOR;
 	draw_circle(data->img, x - scale / 2, y - scale / 2, RED);
-	draw_line(data->img, x * MINIMAP_SCALE_FACTOR, y * MINIMAP_SCALE_FACTOR,
-		(x + cos(data->player->angle) * scale / 2) * MINIMAP_SCALE_FACTOR,
-		(y + sin(data->player->angle) * scale / 2) * MINIMAP_SCALE_FACTOR,
-		BLUE);
 }
 
 void	draw_ray(t_data *data)
@@ -39,7 +35,8 @@ void	draw_ray(t_data *data)
 	y = data->player->y * MINIMAP_SCALE_FACTOR;
 	while (i < data->rays->num_rays)
 	{
-		draw_line(data->img, x, y, data->rays[i].wall_x * MINIMAP_SCALE_FACTOR,
+		my_mlx_pixel_put(data->img,
+			data->rays[i].wall_x * MINIMAP_SCALE_FACTOR,
 			data->rays[i].wall_y * MINIMAP_SCALE_FACTOR, RED);
 		i++;
 	}

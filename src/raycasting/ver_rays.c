@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ver_rays.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 17:23:16 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/06/03 17:41:06 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/06/09 13:31:25 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raycasting.h"
+#include "../cub3d.h"
 
 void	ray_dir_v(t_data *data, int i)
 {

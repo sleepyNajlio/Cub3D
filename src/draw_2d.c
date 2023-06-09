@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 20:32:58 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/03 22:26:51 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/09 13:25:24 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	draw_circle(t_img *img, int x, int y, int color)
 	int	j;
 	int	radius;
 
-	radius = CELL_SIZE * MINIMAP_SCALE_FACTOR;
+	radius = CELL_SIZE * MINIMAP_SCALE_FACTOR / 2;
 	i = 0;
 	while (i < radius * 2)
 	{
@@ -61,71 +61,3 @@ void	draw_circle(t_img *img, int x, int y, int color)
 		i++;
 	}
 }
-
-void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color)
-{
-	int	d[2];
-	int	s[2];
-	int	err;
-	int	e2;
-
-	d[0] = abs(x1 - x0);
-	if (x0 < x1)
-		s[0] = 1;
-	else
-		s[0] = -1;
-	d[1] = abs(y1 - y0);
-	if (y0 < y1)
-		s[1] = 1;
-	else
-		s[1] = -1;
-	if (d[0] > d[1])
-		err = d[0] / 2;
-	else
-		err = -d[1] / 2;
-	while (1)
-	{
-		my_mlx_pixel_put(img, x0, y0, color);
-		if (x0 == x1 && y0 == y1)
-			break ;
-		e2 = err;
-		if (e2 > -d[0])
-		{
-			err -= d[1];
-			x0 += s[0];
-		}
-		if (e2 < d[1])
-		{
-			err += d[0];
-			y0 += s[1];
-		}
-	}
-}
-
-// void	draw_line(t_img *img, int x0, int y0, int x1, int y1, int color)
-// {
-// 	int	dx = abs(x1 - x0);
-// 	int	sx = x0 < x1 ? 1 : -1;
-// 	int	dy = abs(y1 - y0);
-// 	int	sy = y0 < y1 ? 1 : -1;
-// 	int	err = (dx > dy ? dx : -dy) / 2;
-// 	int	e2;
-
-// 	while (1)
-// 	{
-// 		my_mlx_pixel_put(img, x0, y0, color);
-// 		if (x0 == x1 && y0 == y1)
-// 			break ;
-// 		e2 = err;
-// 		if (e2 > -dx)
-// 		{
-// 			err -= dy;
-// 			x0 += sx;
-// 		}
-// 		if (e2 < dy)
-// 		{
-// 			err += dx;
-// 			y0 += sy;
-// 		}
-// 	}
-// }

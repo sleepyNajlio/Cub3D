@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   initiallize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 10:45:46 by fel-fil           #+#    #+#             */
-/*   Updated: 2023/06/03 16:37:37 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/06/09 13:31:35 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "raycasting.h"
+#include "../cub3d.h"
 
 void	init_player(t_player *player, t_parse *parse)
 {
