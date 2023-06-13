@@ -6,12 +6,12 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:33 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/13 11:16:55 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/13 20:25:58 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "../hunter/leak_hunter.h"
+// #include "../hunter/leak_hunter.h"
 
 int	close_window(t_data *data)
 {
@@ -47,7 +47,7 @@ int	main(int ac, char **av)
 {
 	t_data	*data;
 
-	atexit(leak_report);
+	// atexit(leak_report);
 	data = (t_data *)malloc(sizeof(t_data));
 	first_check(ac, av);
 	data->parse = parsing(av[1]);

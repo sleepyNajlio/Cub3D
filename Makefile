@@ -7,7 +7,7 @@ SRC			= src/main.c src/parsing/errors.c src/parsing/libft_tools.c src/parsing/ge
 			src/parsing/identifiers.c src/parsing/iden_tools.c src/parsing/libft_tools1.c src/parsing/tools0.c src/parsing/map.c src/parsing/map_check.c\
 			src/ft_free.c src/draw_2d.c src/raycasting/initiallize.c src/raycasting/draw.c src/hooks.c src/hooks_utils.c src/hooks_utils1.c src/parsing/map_tools.c\
 			src/raycasting/raycasting.c src/raycasting/hor_rays.c src/raycasting/render_3d.c src/raycasting/utils.c src/raycasting/ver_rays.c\
-			hunter/leak_hunter.c hunter/list_tools.c
+			src/parse/parse.c
 
 FLAGS		= -Wall -Werror -Wextra
 

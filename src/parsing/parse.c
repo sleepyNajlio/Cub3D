@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 08:31:02 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/13 10:27:38 by nloutfi          ###   ########.fr       */
+/*   Created: 2023/06/13 20:26:52 by nloutfi           #+#    #+#             */
+/*   Updated: 2023/06/13 20:31:16 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ char	**fill_file(int fd)
 	line = get_next_line(fd);
 	while (line)
 	{
-			tab[i] = remove_nl(line);
-			free(line);
-			line = get_next_line(fd);
-			i++;
+		tab[i] = remove_nl(line);
+		free(line);
+		line = get_next_line(fd);
+		i++;
 	}
 	free(line);
 	tab[i] = NULL;
@@ -47,7 +47,7 @@ void	init_parse(t_parse *parse)
 	parse->map_width = 0;
 	parse->player = 0;
 }
-	
+
 t_parse	*parsing(char *path)
 {
 	int		fd;
@@ -63,4 +63,3 @@ t_parse	*parsing(char *path)
 	free_tab(file);
 	return (parse);
 }
-	

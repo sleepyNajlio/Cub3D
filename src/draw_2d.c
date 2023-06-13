@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 20:32:58 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/09 13:25:24 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/13 20:35:15 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 
 void	draw_square(t_img *img, double x, double y, int color)
 {
-	int	i;
-	int	j;
-	int	size;
+	int		i;
+	int		j;
+	float	size;
 
 	size = CELL_SIZE * MINIMAP_SCALE_FACTOR;
 	i = 0;
