@@ -1,0 +1,19 @@
+┌─────────┤ LEAKS LOG ├─────────┐
+│ Total leaks found:          3 │
+│ Total leaks size:         304 │
+├───────────────────────────────┤
+│ address:       0x7fee6550da10 │
+│ size (bytes):             224 │
+│ file:              src/main.c │
+│ line:                      51 │
+├───────────────────────────────┤
+│ address:       0x7fee655033e0 │
+│ size (bytes):              32 │
+│ file:              src/main.c │
+│ line:                      36 │
+├───────────────────────────────┤
+│ address:       0x7fee6550df80 │
+│ size (bytes):              48 │
+│ file:              src/main.c │
+│ line:                      37 │
+└───────────────────────────────┘└───────────────────────────────┘

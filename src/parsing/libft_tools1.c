@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 04:53:37 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/09 13:36:48 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/13 10:56:27 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,16 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	return (res * sign);
+}
+
+int	ft_strncmp(char *s1, char *s2, int n)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n)
+		i++;
+	if (i == n)
+		return (0);
+	return (s1[i] - s2[i]);
 }

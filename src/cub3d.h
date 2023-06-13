@@ -6,13 +6,13 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 11:05:49 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/09 13:38:45 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/13 10:12:35 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
-# include "../mlx/mlx.h"
+# include <mlx.h>
 # include "parsing/parse.h"
 # include <limits.h>
 
@@ -116,10 +116,6 @@ typedef struct s_data
 	t_text		text[4];
 	int			win_w;
 	int			win_h;
-	void		*no_tx;
-	void		*so_tx;
-	void		*we_tx;
-	void		*ea_tx;
 	int			tx_w;
 	int			tx_h;
 }	t_data;
@@ -167,5 +163,9 @@ void	first_inter_v(t_data *data, int i);
 void	ray_dir_v(t_data *data, int i);
 void	hor_dis(t_data *data, int i, double h_dis);
 void	ver_dis(t_data *data, int i, double v_dis);
+
+//free
+void	free_data(t_data *data);
+void	free_parse(t_parse *parse);
 
 #endif

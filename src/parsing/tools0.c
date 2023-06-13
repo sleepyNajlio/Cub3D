@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 01:20:20 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/03 20:27:33 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/13 10:42:05 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ char	*remove_spc(char *line)
 		j++;
 	}
 	new[++i] = '\0';
+	// if (line)
+	// 	free(line);
 	return (new);
 }
 

@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:31:02 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/09 13:36:31 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/13 10:27:38 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_parse	*parsing(char *path)
 	file = fill_file(fd);
 	identifiers(parse, file);
 	parse_map(parse, file);
+	free_tab(file);
 	return (parse);
 }
 	

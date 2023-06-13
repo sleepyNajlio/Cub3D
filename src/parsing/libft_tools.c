@@ -6,23 +6,11 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:16:10 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/03 18:19:43 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/13 11:10:03 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse.h"
-
-int	ft_strncmp(char *s1, char *s2, int n)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n)
-		i++;
-	if (i == n)
-		return (0);
-	return (s1[i] - s2[i]);
-}
 
 char	*ft_strdup(char *s)
 {
@@ -84,12 +72,35 @@ int	word_count(char *str, char c)
 	return (n);
 }
 
+// void	ft_strchr(char *str, int *i, int *j, char c)
+// {
+// 	while (str[*i] == c && str[*i])
+// 	{
+// 		(*i)++;
+// 		(*j)++;
+// 	}	
+// }
+
+char	*find_word(char *line, int *i, int *j, int c)
+{
+	char	*tmp;
+
+	while (line[*i] != c && line[*i])
+	{
+		(*i)++;
+		(*j)++;
+	}
+	tmp = ft_substr(line, (*i) - (*j), (*j));
+	return (tmp);
+}
+
 char	**ft_split(char *line, char c)
 {
 	int		i;
 	int		j;
 	int		w;
 	char	**tab;
+	char	*tmp;
 
 	i = 0;
 	w = 0;
@@ -99,14 +110,11 @@ char	**ft_split(char *line, char c)
 	while (line[i])
 	{
 		j = 0;
-		while (line[i] != c && line[i])
-		{
-			j++;
-			i++;
-		}
-		tab[w++] = remove_spc(ft_substr(line, i - j, j));
+		tmp = find_word(line, &i, &j, c);
+		tab[w++] = remove_spc(tmp);
 		if (line[i])
 			i++;
+		free(tmp);
 	}
 	tab[w] = NULL;
 	return (tab);

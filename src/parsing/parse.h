@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:59 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/03 20:27:31 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/13 10:12:23 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,6 @@ int		map_height(char **file, int i);
 int		map_width(char **map, int i);
 // ft_free
 void	free_tab(char **file);
-void	free_struct(t_parse *parse);
+void	free_parse(t_parse *parse);
 
 #endif

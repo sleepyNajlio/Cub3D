@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fel-fil <fel-fil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 04:30:33 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/03 16:34:54 by fel-fil          ###   ########.fr       */
+/*   Updated: 2023/06/13 11:16:55 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "../hunter/leak_hunter.h"
 
 int	close_window(t_data *data)
 {
@@ -46,12 +47,12 @@ int	main(int ac, char **av)
 {
 	t_data	*data;
 
+	atexit(leak_report);
 	data = (t_data *)malloc(sizeof(t_data));
 	first_check(ac, av);
 	data->parse = parsing(av[1]);
 	game_init(data);
 	mlx_loop_hook(data->mlx, update, data);
 	mlx_loop(data->mlx);
-	free_struct(data->parse);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 21:11:22 by nloutfi           #+#    #+#             */
-/*   Updated: 2023/06/03 21:23:47 by nloutfi          ###   ########.fr       */
+/*   Updated: 2023/06/13 10:16:29 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int	key_pressed(int keycode, t_data *data)
 
 int	key_released(int keycode, t_data *data)
 {
-	(void)data;
 	if (keycode == KEY_ESC)
 	{
-		mlx_destroy_image(data->mlx, data->img->img);
-		mlx_destroy_window(data->mlx, data->win);
+		free_data(data);
+		// mlx_destroy_image(data->mlx, data->img->img);
+		// mlx_destroy_window(data->mlx, data->win);
 		exit(0);
 	}
 	if (keycode == KEY_W || keycode == KEY_UP)
